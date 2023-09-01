@@ -1,0 +1,12 @@
+#!/bin/sh
+
+export NNN_PLUG='p:preview-tui'
+export NNN_OPTS="r"
+export NNN_OPENER=~/.bin/nuke
+export NNN_FIFO=/tmp/nnn.fifo
+export NNN_TERMINAL=foot
+alias cpg=~/.bin/cpg
+alias mvg=~/.bin/mvg
+
+
+$HOME/.bin/N  "$@"
