@@ -1,0 +1,4 @@
+img=$(nnn -p - ~/wall)
+wal --backend colorz -i $img
+pgrep swaybg && pkill swaybg
+swaybg -i $img & 
