@@ -27,7 +27,7 @@ $menu wofi --show drun -I
 $mount exec doas ntfs-3g
 $umount exec doas umount
 
-$mode_fs_mount  FS mount: l (Library), a (Apps), p (phone), r (realme phone)
+$mode_fs_mount  FS mount: l (Library), a (Apps), m (media)
 $mode_system System: (l) lock, (e) exit, (s) suspend, (h) hibernate, (r) reboot, (o) power-off
 
 $ws1 1   Term
@@ -42,11 +42,11 @@ $ws9 9
 $ws0 0 
 }
 
-seat seat0 xcursor_theme  rad
+seat seat0 xcursor_theme  adwaita
 #output *  bg ~/wal/MotherAndFather.png fill
 swaybg_command -
 #xwayland disable
-default_border pixel 5
+default_border pixel 0
 floating_modifier $mod normal
 workspace_auto_back_and_forth yes
 gaps inner 2
@@ -58,13 +58,12 @@ font UbuntuMono Nerd Font
 
 
 for_window {
-[class="xdman-Main"] floating enable
 [urgent=latest] focus
 
 [shell="xwayland"] title_format "<span>[X] %title゜</span>"
 
 [app_id=.*] focus ; border csd
-[app_id= mpv|imv|pavucontrol] floating enable
+[app_id= mpv|imv|pavucontrol|qalculate-gtk|xdm-app] floating enable
 
 [window_role=pop-up|bubble|dialog|menu|task_dialog|About|Preferences] floating enable
 [window_role = "About"] floating enable
@@ -184,7 +183,7 @@ Control+XF86AudioMUTE exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 XF86MonBrightnessDown exec  light -U 1 && $r_bl
 XF86MonBrightnessUp exec light -A 1 && $r_bl
 
-XF86AudioPlay exec playerctl play-pause
+XF86AudioPlay exec echo play-pause | socat - /tmp/mpv 
 $mod+period exec echo script-binding uosc/next | socat - /tmp/mpv 
 $mod+comma  exec echo script-binding uosc/prev | socat - /tmp/mpv 
 

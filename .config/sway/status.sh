@@ -29,7 +29,7 @@ common
 mydate() {
 local bg="#E0E0E0"
 local name="id_time"
-local stat=$(date "+%a %d/%m:%H:%M") 
+local stat=$(date "+%a-%b-%d %H:%M") 
 common
 }
 
