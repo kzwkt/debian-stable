@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+THUMB=$(playerctl  metadata --format  "{{mpris:artUrl}}")
+SONG=$(playerctl  metadata --format "{{ title }}\n{{ artist }} - {{ album }}")
+
+notify-send -i "$THUMB" "Now playing" "$SONG"

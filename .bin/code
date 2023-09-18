@@ -1,0 +1,2 @@
+#~/opt/code/code --ozone-platform=wayland "$@"
+~/opt/code/code  "$@"
