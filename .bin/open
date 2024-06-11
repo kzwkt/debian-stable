@@ -1,0 +1,210 @@
+#!/usr/bin/env sh
+BIN="${BIN:-0}"
+
+set -euf -o noclobber -o noglob -o nounset
+IFS="$(printf '%b_' '\n')"; IFS="${IFS%_}" # protect trailing \n
+
+PATH=$PATH:"${XDG_CONFIG_HOME:-$HOME/.config}/nnn/plugins"
+IMAGE_CACHE_PATH="$(dirname "$1")"/.thumbs
+
+FPATH="$1"
+FNAME=$(basename "$1")
+EDITOR="nano"
+PAGER="${PAGER:-less -R}"
+ext="${FNAME##*.}"
+if [ -n "$ext" ]; then
+    ext="$(printf "%s" "${ext}" | tr '[:upper:]' '[:lower:]')"
+fi
+
+
+handle_pdf() {
+        if type zathura >/dev/null 2>&1; then
+            nohup zathura "${FPATH}" >/dev/null 2>&1 &
+        else
+            return
+        fi
+    exit 0
+}
+
+handle_av() {
+    if type mpv  >/dev/null 2>&1; then
+        mpv "${FPATH}" >/dev/null 2>&1 &
+    else
+        return
+    fi
+    exit 0
+}
+
+
+# handle this extension and exit
+handle_extension() {
+    case "${ext}" in
+        ## Archive
+        a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|\
+        rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip|rar|7zz)
+            if type 7zz >/dev/null 2>&1; then
+                7zz l -p -- "${FPATH}" | eval "$PAGER"
+                exit 0
+             fi
+            exit 1;;
+
+        ## PDF
+        pdf)
+            handle_pdf
+            exit 1;;
+
+        ## Audio
+        aac|flac|m4a|mid|midi|mpa|mp2|mp3|ogg|wav|wma)
+            handle_av
+            exit 1;;
+
+        ## Video
+        avi|mkv|mp4|ts)
+            handle_av
+            exit 1;;
+
+        ## Log files
+        log|md)
+            "$EDITOR" "${FPATH}"
+            exit 0;;
+
+        ## JSON
+        json)
+            if type jq >/dev/null 2>&1; then
+                jq --color-output . "${FPATH}" | eval "$PAGER"
+                exit 0
+            elif type python >/dev/null 2>&1; then
+                python -m json.tool -- "${FPATH}" | eval "$PAGER"
+                exit 0
+            fi
+            ;;
+    esac
+}
+
+# sets the variable abs_target, this should be faster than calling printf
+abspath() {
+    case "$1" in
+        /*) abs_target="$1";;
+        *)  abs_target="$PWD/$1";;
+    esac
+}
+
+# storing the result to a tmp file is faster than calling listimages twice
+listimages() {
+    find -L "///${1%/*}" -maxdepth 1 -type f -print0 |
+        grep -izZE '\.(jpe?g|png|gif|webp|tiff|bmp|ico|svg)$' |
+        sort -z | tee "$tmp"
+}
+
+load_dir() {
+    abspath "$2"
+    tmp="${TMPDIR:-/tmp}/nuke_$$"
+    trap 'rm -f $tmp' EXIT
+    count="$(listimages "$abs_target" | grep -a -m 1 -ZznF "$abs_target" | cut -d: -f1)"
+
+    if [ -n "$count" ]; then
+            xargs -0 "$1" -n "$count" -- < "$tmp"
+    else
+        shift
+        "$1" -- "$@" # fallback
+    fi
+}
+
+handle_mime() {
+    mimetype="${1}"
+    case "${mimetype}" in
+        ## Manpages
+        text/troff)
+            man -l "${FPATH}"
+            exit 0;;
+
+        ## Text
+        text/* | */xml)
+            "$EDITOR" "${FPATH}"
+            exit 0;;
+
+        ## DjVu
+        image/vnd.djvu)
+		handle_pdf 
+           exit 1;;
+
+        ## Image
+        image/*)
+                if type mvi >/dev/null 2>&1; then
+                      mvi  "${FPATH}" >/dev/null 2>&1 &
+                    exit 0
+                fi
+            exit 7;;
+
+        ## PDF
+        application/pdf)
+            handle_pdf
+            exit 1;;
+
+        ## Audio
+        audio/*)
+            handle_av
+            exit 1;;
+
+        ## Video
+        video/*)
+            handle_av
+            exit 1;;
+    esac
+}
+
+handle_fallback() {
+        if type xdg-open >/dev/null 2>&1; then
+             xdg-open "${FPATH}" >/dev/null 2>&1 &
+            exit 0
+    fi
+
+    echo '----- File details -----' && file --dereference --brief -- "${FPATH}"
+    exit 1
+}
+
+handle_blocked() {
+    case "${MIMETYPE}" in
+        application/x-sharedlib)
+            exit 0;;
+
+        application/x-shared-library-la)
+            exit 0;;
+
+        application/x-executable)
+            exit 0;;
+
+        application/x-shellscript)
+            exit 0;;
+
+        application/octet-stream)
+            exit 0;;
+    esac
+}
+
+handle_bin() {
+    case "${MIMETYPE}" in
+        application/x-executable|application/x-shellscript)
+        clear
+        echo '-------- Executable File --------' && file --dereference --brief -- "${FPATH}"
+        printf "Run executable (y/N/'a'rgs)? "
+        read -r answer
+        case "$answer" in
+            [Yy]* ) exec "${FPATH}";;
+            [Aa]* )
+                printf "args: "
+                read -r args
+                exec "${FPATH}" "$args";;
+            [Nn]* ) exit;;
+        esac
+    esac
+}
+
+MIMETYPE="$(file -bL --mime-type -- "${FPATH}")"
+handle_extension
+handle_mime "${MIMETYPE}"
+[ "$BIN" -ne 0 ] && [ -x "${FPATH}" ] && handle_bin
+handle_blocked "${MIMETYPE}"
+handle_fallback
+
+exit 1
