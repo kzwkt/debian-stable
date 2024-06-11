@@ -1,0 +1,8 @@
+#!/bin/sh
+case $BLOCK_BUTTON in
+        1) walset ;;
+	3) pkill swaybg ;;	
+	6) foot nano "$0" ;;
+         esac
+
+echo " 󰸉 "
