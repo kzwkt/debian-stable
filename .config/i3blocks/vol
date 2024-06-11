@@ -1,0 +1,12 @@
+#!/bin/sh
+case $BLOCK_BUTTON in
+	 2) wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle    >>/dev/null ;;
+	 4) wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+  >>/dev/null ;;
+	 5) wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-  >>/dev/null ;;
+	 6) foot nano "$0" ;;
+ esac
+
+volstat="$(amixer get Master)"
+vol=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | cut -d : -f 2)
+icon=""
+echo "$icon $vol"
