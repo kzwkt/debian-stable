@@ -1,0 +1,5 @@
+#!/bin/sh
+case $BLOCK_BUTTON in
+	6) foot -e "$EDITOR" "$0" ;;
+esac
+date "+%y %b %d (%a) %I:%M%p"
