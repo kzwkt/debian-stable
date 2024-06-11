@@ -1,0 +1,9 @@
+#!/bin/sh
+
+menu='wofi -d'
+sel=$(lsblk -nrpo NAME,LABEL,FSTYPE,MOUNTPOINT | awk '/ntfs/ && $4=="" {print $1 " " $2}' | $menu | awk '{print $1}')
+[ -z "$sel" ] && { echo "No ntfs partition."; exit 1; }
+
+mp=$(find ~/mnt/ -maxdepth 1 -type d -empty | $menu)
+[ -z "$mp" ] && { echo "No mountpoint selected."; exit 1; }
+doas ntfs-3g $sel $mp 
