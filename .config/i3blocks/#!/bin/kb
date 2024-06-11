@@ -1,0 +1,6 @@
+#!/bin/sh
+case $BLOCK_BUTTON in
+        6) foot nano "$0" ;;
+         esac
+KBLAYOUT=$(swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' |  awk -F '"' '{print $4}')
+echo  $KBLAYOUT 
