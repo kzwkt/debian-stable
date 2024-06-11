@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 BIN="${BIN:-0}"
 
 set -euf -o noclobber -o noglob -o nounset
