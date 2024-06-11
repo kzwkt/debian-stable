@@ -15,21 +15,7 @@ focused
 $WINDOWS
 EOF`
 
-
-op_on=`wofi --dmenu -p 'output to file:'  << EOF
-no
-yes
-EOF`
-case $op_on in
-	yes) SAVEDIR=~/shot ;;
-	no) SAVEDIR=/tmp  ;;
-    esac
-
-
-mkdir -p -- "$SAVEDIR"
-FILENAME="$SAVEDIR/$(date +'%Y-%m-%d-%H%M%S_screenshot.png')"
-
-
+FILENAME=/tmp/screenshot.png
 
 case $CHOICE in
     fullscreen)
@@ -50,27 +36,11 @@ case $CHOICE in
         grim -g "$GEOMETRY" "$FILENAME"
 esac
 
-# If swappy is installed, prompt the user to edit the captured screenshot
+
 if command -v swappy $>/dev/null
 then
-    EDIT_CHOICE=`wofi --dmenu -p 'Edit'  << EOF
-no
-yes
-EOF`
-
-    case $EDIT_CHOICE in
-        yes)
-            swappy -f "$FILENAME" -o "$FILENAME"
-            ;;
-        no)
-            ;;
-        '')
-            ;;
-    esac
+swappy -f "$FILENAME" -o "$FILENAME"
 fi
 
-
-
-wl-copy < "$FILENAME"
+wl-copy < $FILENAME
 #notify-send "Screenshot" "File saved as <i>'$FILENAME'</i> and copied to the clipboard." -i "$FILENAME"
-
