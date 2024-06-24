@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# use run0 with polkit-gnome gui later
+
+mount_nt() {
+sel=$(lsblk -nrpo NAME,FSTYPE,MOUNTPOINT | awk '/ntfs/ && $3=="" {print $1}')
+
+[ -z "$sel" ] &&  return 1 ;
+
+# Constructing the options for swaynag
+options=""
+for partition in $sel; do
+    mp=~/mnt/$(basename "$partition")
+    [ -d "$mp" ] || mkdir -p "$mp"
+    options="$options -Z \"mount:$partition\" \"doas ntfs-3g '$partition' '$mp'\""
+done
+}
+
+unmount_nt() {
+mp=$(grep '/home/kai/mnt' '/etc/mtab' | awk '{print $2}')
+[ -z "$mp" ] &&  return 1 ;
+options1=""
+for part in $mp; do 
+    options1="$options1 -Z \"unmount:$part\" \"doas umount $part\""
+done
+}
+
+mount_nt
+unmount_nt
+
+# Executing swaynag with the constructed options
+eval swaynag -m mount "$options" "$options1"
