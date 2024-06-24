@@ -5,6 +5,11 @@ function list_geometry () {
     swaymsg -t get_tree | jq -r '.. | (.nodes? // empty)[] | select(.'$1' and .pid) | "\(.rect.x),\(.rect.y) \(.rect.width)x\(.rect.height)'$append'"'
 }
 
+notify() {
+notify-send "Screenshot" "File saved as <i>'$FILENAME'</i> and copied to the clipboard." -i "$FILENAME"
+}
+
+
 WINDOWS=`list_geometry visible with_description`
 FOCUSED=`list_geometry focused`
 
@@ -19,18 +24,14 @@ FILENAME=/tmp/screenshot.png
 
 case $CHOICE in
     fullscreen)
-        grim "$FILENAME"
-    ;;
+        grim "$FILENAME" ;;
     region)
-        grim -g "$(slurp)" "$FILENAME"
-    ;;
+        grim -g "$(slurp)" "$FILENAME" ;;
     focused)
-        grim -g "$FOCUSED" "$FILENAME"
-    ;;
+        grim -g "$FOCUSED" "$FILENAME"  ;;
     '')
-#        notify-send "Screenshot" "Cancelled"
-        exit 0
-        ;;
+
+        exit 0   ;;
     *)
         GEOMETRY="`echo \"$CHOICE\" | cut -d$'\t' -f1`"
         grim -g "$GEOMETRY" "$FILENAME"
@@ -43,4 +44,4 @@ swappy -f "$FILENAME" -o "$FILENAME"
 fi
 
 wl-copy < $FILENAME
-#notify-send "Screenshot" "File saved as <i>'$FILENAME'</i> and copied to the clipboard." -i "$FILENAME"
+
