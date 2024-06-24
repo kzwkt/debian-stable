@@ -1,0 +1,3 @@
+#!/bin/sh
+
+iwctl station wlan0 show | awk '/Connected network/ {print $3}'
