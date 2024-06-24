@@ -47,5 +47,4 @@ bwrap \
 --bind-try ~/Downloads ~/Downloads \
 --bind ~/opt/firefox ~/opt/firefox \
 --ro-bind-try ~/.local/share/fonts/ ~/.local/share/fonts/ \
---bind-try ~/.local/share/vdhcoapp ~/.local/share/vdhcoapp \
 ~/opt/firefox/firefox
