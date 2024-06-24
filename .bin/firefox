@@ -1,6 +1,7 @@
 bwrap \
 --unshare-all \
 --share-net \
+--hostname localhost \
 --die-with-parent \
 --new-session \
 --clearenv \
@@ -10,7 +11,6 @@ bwrap \
 --setenv WAYLAND_DISPLAY "$WAYLAND_DISPLAY" \
 --setenv XDG_RUNTIME_DIR "$XDG_RUNTIME_DIR" \
 --setenv PATH /usr/bin \
---hostname localhost \
 --symlink usr/lib /lib \
 --symlink usr/lib64 /lib64 \
 --ro-bind /usr/lib /usr/lib \
@@ -40,11 +40,12 @@ bwrap \
 --ro-bind /usr/share/ca-certificates /usr/share/ca-certificates \
 --ro-bind /etc/ssl /etc/ssl \
 --ro-bind /etc/ca-certificates /etc/ca-certificates \
---ro-bind "$XDG_RUNTIME_DIR/pulse" "$XDG_RUNTIME_DIR/pulse" \
+--bind "$XDG_RUNTIME_DIR/pulse" "$XDG_RUNTIME_DIR/pulse" \
 --ro-bind "$XDG_RUNTIME_DIR/wayland-1" "$XDG_RUNTIME_DIR/wayland-1" \
 --ro-bind "$XDG_RUNTIME_DIR/bus" "$XDG_RUNTIME_DIR/bus" \
 --bind-try ~/.mozilla ~/.mozilla \
 --bind-try ~/Downloads ~/Downloads \
 --bind ~/opt/firefox ~/opt/firefox \
 --ro-bind-try ~/.local/share/fonts/ ~/.local/share/fonts/ \
+--bind-try ~/.local/share/vdhcoapp ~/.local/share/vdhcoapp \
 ~/opt/firefox/firefox
