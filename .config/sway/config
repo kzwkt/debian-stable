@@ -17,7 +17,7 @@ $term foot
 $browser firefox
 $editor foot nano
 $menu wofi --show drun -I
-
+$pctl playerctl.sh
 $mode_system System: (l) lock, (e) exit, (s) suspend, (h) hibernate, (r) reboot, (o) power-off
 
 $ws1 1  Term
@@ -33,7 +33,7 @@ $ws7 7  Othe
 #seat seat0 xcursor_theme  rad
 #output *  bg "$wallpaper" fill
 swaybg_command -
-xwayland disable
+#xwayland disable
 default_border pixel 2
 floating_modifier $mod normal
 focus_follows_mouse no 
@@ -46,10 +46,11 @@ smart_gaps on
 # client.<class> <border> <background> <text> <indicator> <child_border>
 client.focused    #ff0000 #2f343f      #4477ff  #4477ff     #4477ff
 
+
 #wm rules
 for_window {
 [app_id=.*] focus 
-[app_id= mpv|float|xdm-app] floating enable ; border normal
+[app_id= mpv|float|xdm-app] floating enable ; border normal  
 [title = "Picture-in-Picture"] sticky enable ; floating enable;
 [title= "mvi"] floating disable ;
 [shell="xwayland"] title_format "[XWayland] %title"
@@ -76,8 +77,7 @@ $mod+Shift+e exec swaynag -t warning -m 'Bye Bye' -B 'Yes' 'swaymsg exit'
 $mod+f fullscreen
 $mod+i exec $editor ~/.config/sway/config
 $mod+Shift+i exec $editor  ~/.config/i3blocks/config
-$mod+m  exec mounter
-$mod+Shift+m  exec wum
+$mod+m  exec mu
 $mod+q kill
 $mod+Shift+r reload
 $mod+s sticky toggle
@@ -88,7 +88,7 @@ $mod+Escape mode "$mode_system"
 $mod+minus scratchpad show
 $mod+Shift+minus move scratchpad
 $mod+z exec $term
-$mod1+Return exec foot -a float
+$mod1+z exec foot -a float
 $mod+slash exec wmoji type
 $mod+Shift+Space floating toggle
 $mod+Space input 1:1:AT_Translated_Set_2_keyboard xkb_switch_layout next ;  $r_kb
@@ -161,11 +161,11 @@ Control+XF86AudioMUTE exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle  ; $r_vo
 XF86MonBrightnessDown exec  brightnessctl -e set 5%- ; $r_bl 
 XF86MonBrightnessUp exec   brightnessctl -e set 5%+ ; $r_bl
 
-XF86AudioPlay exec playerctl pp
-$mod1+period exec playerctl n
-$mod1+comma exec playerctl p
-
-Print exec ~/.bin/wshot
+XF86AudioPlay exec $pctl play-pause
+$mod1+period exec $pctl next
+$mod1+comma exec $pctl previous
+$mod1+slash $pctl play-pause
+$mod+p  exec ~/.bin/wshot
 XF86PowerOff output eDP-1 dpms toggle
 }
 
@@ -207,7 +207,9 @@ bar {
 position top
 #mode hide
 status_command i3blocks
+#status_command ~/.config/sway/status.sh
 }
 
 ##autoruns
 #exec_always  gsettings set org.gnome.desktop.interface  cursor-theme  'rad'
+#exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
