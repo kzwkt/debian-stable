@@ -2,7 +2,7 @@
 
 export NNN_PLUG='p:preview-tui'
 export NNN_OPTS="d"
-export NNN_OPENER=~/.bin/open
+export NNN_OPENER=open
 export NNN_FIFO=/tmp/nnn.fifo
 export NNN_TERMINAL=foot
 export EDITOR=nano
