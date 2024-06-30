@@ -1,0 +1,3 @@
+Package: grub-common
+Pin: version *
+Pin-Priority: -1
