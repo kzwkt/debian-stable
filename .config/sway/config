@@ -15,7 +15,7 @@ $r_kb exec pkill -RTMIN+3 i3blocks
 
 $term foot
 $browser firefox
-$editor foot nano
+$editor l3afpad
 $menu wofi --show drun -I
 $pctl playerctl.sh
 $mode_system System: (l) lock, (e) exit, (s) suspend, (h) hibernate, (r) reboot, (o) power-off
@@ -29,11 +29,12 @@ $ws6 6  Grap
 $ws7 7  Othe
 }
 
-
 #seat seat0 xcursor_theme  rad
 #output *  bg "$wallpaper" fill
-swaybg_command -
 #xwayland disable
+
+swaybg_command -
+
 default_border pixel 2
 floating_modifier $mod normal
 focus_follows_mouse no 
@@ -44,8 +45,7 @@ smart_borders on
 smart_gaps on
 
 # client.<class> <border> <background> <text> <indicator> <child_border>
-client.focused    #ff0000 #2f343f      #4477ff  #4477ff     #4477ff
-
+client.focused    #ff0000 #ff0000      #ffffff #4477ff     #ff0000
 
 #wm rules
 for_window {
@@ -77,7 +77,8 @@ $mod+Shift+e exec swaynag -t warning -m 'Bye Bye' -B 'Yes' 'swaymsg exit'
 $mod+f fullscreen
 $mod+i exec $editor ~/.config/sway/config
 $mod+Shift+i exec $editor  ~/.config/i3blocks/config
-$mod+m  exec mu
+$mod+m  exec mounter
+$mod+Shift+m  exec wum
 $mod+q kill
 $mod+Shift+r reload
 $mod+s sticky toggle
@@ -165,12 +166,9 @@ XF86AudioPlay exec $pctl play-pause
 $mod1+period exec $pctl next
 $mod1+comma exec $pctl previous
 $mod1+slash $pctl play-pause
-$mod+p  exec ~/.bin/wshot
+$mod+p exec wshot
 XF86PowerOff output eDP-1 dpms toggle
 }
-
-
-
 
 # Resize floating windows with mouse scroll:
 bindsym --whole-window --border {
