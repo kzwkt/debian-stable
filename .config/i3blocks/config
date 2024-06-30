@@ -1,8 +1,5 @@
 command=~/.config/i3blocks/$BLOCK_NAME
 
-[wall]
-interval=once
-
 [kb]
 interval=once
 signal=3
