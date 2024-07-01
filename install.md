@@ -1,7 +1,7 @@
-```
+
 apt-mark showmanual | grep -v '^lib'
 
-
+```
 apt install bash-completion bubblewrap  \ 
 dbus-broker deborphan dialog dosfstools   \
 fdisk ffmpeg file fonts-noto-color-emoji foot  \
