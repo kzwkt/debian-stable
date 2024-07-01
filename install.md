@@ -19,7 +19,7 @@ tar tiny-initramfs tzdata  \
 udev   \
 vainfo  \
 wireless-regdb wl-clipboard wofi  \
-zathura  \
+zathura  
 ```
 '''
 bubblewrap - low level  sandbox  : Recommends: procps
