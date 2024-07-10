@@ -49,6 +49,7 @@ error: plugin: filetype already registered: application/pdf
 
 
 Dependencies for zathura-pdf-mupdf
+``
 Version 0.4.3
 zathura (>= 0.2.0)
 girara
@@ -57,6 +58,7 @@ meson (>= 0.61) for building
 GLib
 Cairo
 GTK+
+
 Version 0.4.2
 zathura (>= 0.2.0)
 girara
@@ -65,6 +67,7 @@ meson (>= 0.61) for building
 GLib
 Cairo
 GTK+
+
 Version 0.4.1       
 zathura (>= 0.4.7)
 girara (>= 0.3.6)
@@ -73,6 +76,7 @@ meson (>= 0.61) for building
 GLib
 Cairo
 GTK+
+
 Version 0.4.0
 zathura (>= 0.2.0)
 girara
@@ -81,6 +85,7 @@ meson (>= 0.50) for building
 GLib
 Cairo
 GTK+
+
 Version 0.3.9
 zathura (>= 0.2.0)
 girara
@@ -89,6 +94,7 @@ meson (>= 0.50) for building
 GLib
 Cairo
 GTK+
+
 Version 0.3.8
 zathura (>= 0.2.0)
 girara
@@ -97,6 +103,7 @@ meson (>= 0.50) for building
 GLib
 Cairo
 GTK+
+
 Version 0.3.7
 zathura (>= 0.2.0)
 girara
@@ -105,12 +112,12 @@ meson (>= 0.50) for building
 GLib
 Cairo
 GTK+
-
+```
 https://salsa.debian.org/sramacher/zathura
 
 Stable 
 0.4.9-1
-
+```
 https://tracker.debian.org/pkg/zathura
 	 	 o-o-stable: 	 	 	0.4.3-1 	
 	 	 oldstable: 	 	 	0.4.7-1 	
@@ -138,7 +145,7 @@ https://tracker.debian.org/pkg/meson
 	 	 stable: 	 	 	1.0.1-5 	
 	 	 testing: 	 	 	1.4.1-1 	
 	 	 unstable: 	 	 	1.4.1-1 	
-
+```
 
 
 
