@@ -15,7 +15,7 @@ apt build-dep zathura mupdf
 
 
 i commented following in meson.build
-
+```
   build_dependencies += [
  
     # tesseract,
@@ -24,7 +24,7 @@ i commented following in meson.build
 # build from Debian's libmupdf-dev
 #  tesseract = dependency('tesseract')
 #  leptonica = dependency('lept')
-
+```
 
 meson build
 cd build
@@ -49,7 +49,7 @@ error: plugin: filetype already registered: application/pdf
 
 
 Dependencies for zathura-pdf-mupdf
-``
+```
 Version 0.4.3
 zathura (>= 0.2.0)
 girara
