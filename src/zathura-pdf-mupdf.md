@@ -1,3 +1,6 @@
+in google/amazon/azure/github-codespace whatever
+sudo mount -o rw,remount,exec,dev,suid  /home
+debootstrap stable deb
 
 debian Stable 
 Mupdf 1.21.1+ds2-1 	
