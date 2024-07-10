@@ -30,6 +30,8 @@ i commented following in meson.build
 ```
 
 meson build
+```
+		
 cd build
 ninja
 
@@ -48,7 +50,7 @@ error: Could not load plugin '/usr/lib/x86_64-linux-gnu/zathura/libpdf-mupdf.so'
 zatura 
 error: plugin: filetype already registered: application/pdf
 
-
+```
 
 
 Dependencies for zathura-pdf-mupdf
