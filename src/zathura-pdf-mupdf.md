@@ -1,7 +1,7 @@
-in google/amazon/azure/github-codespace whatever
-sudo mount -o rw,remount,exec,dev,suid  /home
-debootstrap stable deb
-
+in google/amazon/azure/github-codespace whatever   
+sudo mount -o rw,remount,exec,dev,suid  /home   
+debootstrap stable deb   
+```
 debian Stable 
 Mupdf 1.21.1+ds2-1 	
 Zthura 0.5.2-1 
@@ -15,7 +15,7 @@ https://github.com/pwmt/zathura-pdf-mupdf/archive/refs/tags/0.4.1.tar.gz
 apt install build-essential libmupdf-dev zathura-dev
 apt build-dep zathura mupdf
  apt-get source mupdf
-
+```
 
 i commented following in meson.build
 ```
