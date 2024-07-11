@@ -23,7 +23,7 @@ vainfo  \
 wireless-regdb wl-clipboard wofi  \
 zathura  
 ```
-
+```
 bubblewrap - low level  sandbox  : Recommends: procps  
 dbus-broker - alternative to dbus install before systemd  :  Recommends: dbus-bin Provides: dbus-system-bus   
 deborphan - cleaning orphan pkgs : Recommends: apt, gettext-base(intl localization)  
@@ -65,7 +65,7 @@ wireless-regdb  wireless regulatory database for Linux
 wl-clipboard - cli for wayland clipboard Recommends: xdg-utils  
 wofi - gui launcher   
 zathura - pdf reader Suggests: www-browser, zathura-ps, zathura-djvu, zathura-cb   
-
+```
  
  
 
