@@ -1,3 +1,6 @@
+# curl --location https://apic-desktop.musixmatch.com/ws/1.1/token.get?app_id=web-desktop-app-v1.0
+# src https://github.com/guidocella/mpv-lrc
+
 local options = {
     musixmatch_token = '220215b052d6aeaa3e9a410986f6c3ae7ea9f5238731cb918d05ea',
 }
