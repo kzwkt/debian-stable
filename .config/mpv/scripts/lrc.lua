@@ -1,5 +1,5 @@
-# curl --location https://apic-desktop.musixmatch.com/ws/1.1/token.get?app_id=web-desktop-app-v1.0
-# src https://github.com/guidocella/mpv-lrc
+-- new token curl --location https://apic-desktop.musixmatch.com/ws/1.1/token.get?app_id=web-desktop-app-v1.0
+-- src https://github.com/guidocella/mpv-lrc
 
 local options = {
     musixmatch_token = '220215b052d6aeaa3e9a410986f6c3ae7ea9f5238731cb918d05ea',
@@ -88,7 +88,7 @@ local function download_lyrics()
 
     if not response then return end
     if response.message.header.status_code == 401 and response.message.header.hint == 'renew' then
-        show_message('Musixmatch token rate limited. See script-opts/lrc.conf for new token generation.', true)
+        show_message('Musixmatch token rate limited, get new token.', true)
         return
     end
     if response.message.header.status_code ~= 200 then
