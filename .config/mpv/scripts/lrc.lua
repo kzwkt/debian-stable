@@ -2,7 +2,7 @@
 -- src https://github.com/guidocella/mpv-lrc
 
 local options = {
-    musixmatch_token = '220215b052d6aeaa3e9a410986f6c3ae7ea9f5238731cb918d05ea',
+    musixmatch_token = '2409244c3e6cd327eab6e43182188c8a7893ad1879945c6c30e25b',
 }
 local utils = require 'mp.utils'
 require 'mp.options'.read_options(options)
