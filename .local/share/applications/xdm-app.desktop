@@ -1,0 +1,20 @@
+[Desktop Entry]
+Categories=Network;
+Comment[en_US]=Xtreme Download Manager
+Comment=Xtreme Download Manager
+Encoding=UTF-8
+Exec=env GTK_USE_PORTAL=1 /home/k/opt/xdman/xdm-app %U
+GenericName[en_US]=
+GenericName=
+Icon=/home/k/opt/xdman/xdm-logo.svg
+MimeType=
+Name[en_US]=Xtreme Download Manager
+Name=Xtreme Download Manager
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+Version=1.0
+X-KDE-SubstituteUID=false
+X-KDE-Username=

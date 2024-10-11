@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=iwgtk
+Comment=Wireless network management utility
+Exec=iwgtk
+Icon=iwgtk
+Categories=GTK;Settings;HardwareSettings;
+Terminal=false
