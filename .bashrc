@@ -1,7 +1,4 @@
-case $- in
-    *i*) ;;
-      *) return;;
-esac
+[[ $- != *i* ]] && return
 
 HISTCONTROL=ignoreboth
 shopt -s histappend
@@ -51,3 +48,4 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
