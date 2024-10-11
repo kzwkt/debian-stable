@@ -70,9 +70,11 @@ zathura - pdf reader Suggests: www-browser, zathura-ps, zathura-djvu, zathura-cb
  
 
 
-
-
-
+```
+sudo /sbin/dpkg-reconfigure tzdata
+sudo timedatectl set-ntp true
+sudo /sbin/dpkg-reconfigure locales
+```
 
 
  
