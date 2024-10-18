@@ -35,6 +35,9 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias sudo=doas
+alias man=mman
+export MANPAGER=less 
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
