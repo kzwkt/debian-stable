@@ -11,6 +11,5 @@ RecommendsImportant "0";
 Acquire {
 Languages "none";
 GzipIndexes "1";
-IndexTargets::deb::Packages::KeepCompressedAs "gz";
 };
 
