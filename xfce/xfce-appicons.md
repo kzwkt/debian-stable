@@ -1,5 +1,6 @@
 ```
 find /usr/share/icons -type f -iname "*org.xfce*" | sort -u
+
 /usr/share/icons/hicolor/128x128/apps/org.xfce.about.png
 /usr/share/icons/hicolor/128x128/apps/org.xfce.appfinder.png
 /usr/share/icons/hicolor/128x128/apps/org.xfce.filemanager.png
@@ -28,6 +29,7 @@ find /usr/share/icons -type f -iname "*org.xfce*" | sort -u
 /usr/share/icons/hicolor/128x128/apps/org.xfce.xfdesktop.png
 /usr/share/icons/hicolor/128x128/apps/org.xfce.xfwm4.png
 /usr/share/icons/hicolor/128x128/apps/org.xfce.xfwm4-tweaks.png
+
 /usr/share/icons/hicolor/16x16/apps/org.xfce.about.png
 /usr/share/icons/hicolor/16x16/apps/org.xfce.appfinder.png
 /usr/share/icons/hicolor/16x16/apps/org.xfce.filemanager.png
@@ -58,6 +60,7 @@ find /usr/share/icons -type f -iname "*org.xfce*" | sort -u
 /usr/share/icons/hicolor/16x16/apps/org.xfce.xfdesktop.png
 /usr/share/icons/hicolor/16x16/apps/org.xfce.xfwm4.png
 /usr/share/icons/hicolor/16x16/apps/org.xfce.xfwm4-tweaks.png
+
 /usr/share/icons/hicolor/22x22/apps/org.xfce.panel.whiskermenu.png
 /usr/share/icons/hicolor/24x24/apps/org.xfce.appfinder.png
 /usr/share/icons/hicolor/24x24/apps/org.xfce.filemanager.png
@@ -82,7 +85,9 @@ find /usr/share/icons -type f -iname "*org.xfce*" | sort -u
 /usr/share/icons/hicolor/24x24/apps/org.xfce.terminal-settings.png
 /usr/share/icons/hicolor/24x24/apps/org.xfce.webbrowser.png
 /usr/share/icons/hicolor/24x24/apps/org.xfce.xfdesktop.png
+
 /usr/share/icons/hicolor/256x256/apps/org.xfce.panel.whiskermenu.png
+
 /usr/share/icons/hicolor/32x32/apps/org.xfce.appfinder.png
 /usr/share/icons/hicolor/32x32/apps/org.xfce.filemanager.png
 /usr/share/icons/hicolor/32x32/apps/org.xfce.garcon.png
@@ -116,6 +121,7 @@ find /usr/share/icons -type f -iname "*org.xfce*" | sort -u
 /usr/share/icons/hicolor/32x32/apps/org.xfce.terminal-settings.png
 /usr/share/icons/hicolor/32x32/apps/org.xfce.webbrowser.png
 /usr/share/icons/hicolor/32x32/apps/org.xfce.xfdesktop.png
+
 /usr/share/icons/hicolor/48x48/apps/org.xfce.about.png
 /usr/share/icons/hicolor/48x48/apps/org.xfce.appfinder.png
 /usr/share/icons/hicolor/48x48/apps/org.xfce.filemanager.png
@@ -146,7 +152,9 @@ find /usr/share/icons -type f -iname "*org.xfce*" | sort -u
 /usr/share/icons/hicolor/48x48/apps/org.xfce.xfdesktop.png
 /usr/share/icons/hicolor/48x48/apps/org.xfce.xfwm4.png
 /usr/share/icons/hicolor/48x48/apps/org.xfce.xfwm4-tweaks.png
+
 /usr/share/icons/hicolor/64x64/apps/org.xfce.panel.whiskermenu.png
+
 /usr/share/icons/hicolor/scalable/apps/org.xfce.about.svg
 /usr/share/icons/hicolor/scalable/apps/org.xfce.appfinder.svg
 /usr/share/icons/hicolor/scalable/apps/org.xfce.filemanager.svg
@@ -176,4 +184,5 @@ find /usr/share/icons -type f -iname "*org.xfce*" | sort -u
 /usr/share/icons/hicolor/scalable/apps/org.xfce.xfdesktop.svg
 /usr/share/icons/hicolor/scalable/apps/org.xfce.xfwm4.svg
 /usr/share/icons/hicolor/scalable/apps/org.xfce.xfwm4-tweaks.svg
+
 ```
