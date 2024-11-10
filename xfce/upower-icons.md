@@ -1,4 +1,4 @@
-
+```
 ln -sf gpm-battery-000.png battery-level-0-symbolic.png
 ln -sf gpm-battery-020.png battery-level-10-symbolic.png
 ln -sf gpm-battery-020.png battery-level-20-symbolic.png
@@ -22,3 +22,4 @@ ln -sf gpm-battery-080-charging.png battery-level-70-charging-symbolic.png
 ln -sf gpm-battery-080-charging.png battery-level-80-charging-symbolic.png
 ln -sf gpm-battery-100-charging.png battery-level-90-charging-symbolic.png
 ln -sf gpm-battery-100-charging.png battery-level-100-charged-symbolic.png
+```
