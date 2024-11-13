@@ -215,6 +215,7 @@ ln -s utilities-terminal.png org.xfce.terminal.png
 ln -s preferences-desktop-accessibility.png org.xfce.settings.accessibility.png
 ln -s abiword.png l3afpad.png
 ln -s applets-screenshooter.png org.xfce.screenshooter.png
+ln -s background.png org.xfce.xfdesktop.png
 
 
    
