@@ -216,6 +216,12 @@ ln -s preferences-desktop-accessibility.png org.xfce.settings.accessibility.png
 ln -s abiword.png l3afpad.png
 ln -s applets-screenshooter.png org.xfce.screenshooter.png
 ln -s background.png org.xfce.xfdesktop.png
+ln -s evince.png org.pwmt.zathura.png 
+ln -s rhythmbox.png mpv.png 
+ln -s utilities-system-monitor.png  
+ln -s desktop.png org.xfce.panel.showdesktop.png
+ ln -s browser.png org.xfce.webbrowser.png
+
 
 
    
