@@ -185,4 +185,12 @@ find /usr/share/icons -type f -iname "*org.xfce*" | sort -u
 /usr/share/icons/hicolor/scalable/apps/org.xfce.xfwm4.svg
 /usr/share/icons/hicolor/scalable/apps/org.xfce.xfwm4-tweaks.svg
 
+
+ln -s xfce-system.png org.xfce.settings.manager.png
+
+cd ~/.local/share/icons/Windows-XP-master/128x128/apps
+ln -s utilities-terminal.png org.xfce.terminal.png
+
+
+
 ```
