@@ -186,10 +186,36 @@ find /usr/share/icons -type f -iname "*org.xfce*" | sort -u
 /usr/share/icons/hicolor/scalable/apps/org.xfce.xfwm4-tweaks.svg
 
 
+ls /usr/share/icons/hicolor/128x128/apps/
+l3afpad.png                                 org.xfce.settings.display.png
+mpv.png                                     org.xfce.settings.editor.png
+org.pwmt.zathura.png                        org.xfce.settings.keyboard.png
+org.xfce.about.png                          org.xfce.settings.manager.png
+org.xfce.appfinder.png                      org.xfce.settings.mouse.png
+org.xfce.filemanager.png                    org.xfce.taskmanager.png
+org.xfce.mailreader.png                     org.xfce.terminalemulator.png
+org.xfce.panel.png                          org.xfce.terminal.png
+org.xfce.panel.whiskermenu.png              org.xfce.terminal-settings.png
+org.xfce.powermanager.png                   org.xfce.thunar.png
+org.xfce.screenshooter.png                  org.xfce.webbrowser.png
+org.xfce.session.png                        org.xfce.workspaces.png
+org.xfce.settings.accessibility.png         org.xfce.xfdesktop.png
+org.xfce.settings.appearance.png            org.xfce.xfwm4.png
+org.xfce.settings.color.png                 org.xfce.xfwm4-tweaks.png
+org.xfce.settings.default-applications.png  xfce4-logo.png
+
+
+
+
+
 ln -s xfce-system.png org.xfce.settings.manager.png
 
 cd ~/.local/share/icons/Windows-XP-master/128x128/apps
 ln -s utilities-terminal.png org.xfce.terminal.png
+ln -s preferences-desktop-accessibility.png org.xfce.settings.accessibility.png
+ln -s abiword.png l3afpad.png
+
+   
 
 
 
