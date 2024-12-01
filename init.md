@@ -27,6 +27,7 @@ apt --download-only install sysvinit-core libpam-elogind
 libelogind0 , libsystemd0 will pull systemd/elogind when necessary so you can swap one for other depending on need
 
 sysvinit-core has init in /sbin/init 
+depends on : initscripts, sysv-rc |  openrc, sysvinit-utils 
 /usr/sbin/init is symlinked to /lib/systemd/systemd by systemd-sysv package
 also provides /usr/sbin/halt,init,poweroff,reboot,runlevel,shutdown,telinit
 dracut has /init as systemd
@@ -35,7 +36,6 @@ dracut has /init as systemd
 init-system-helpers(essential)  
 /usr/bin/deb-systemd-helper,deb-systemd-invoke
 /usr/sbin/invoke-rc.d,service,update-rc.d
-sudo apt install initscripts
 
 
 sysvinit-core
