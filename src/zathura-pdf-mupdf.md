@@ -31,10 +31,20 @@ we can go with zathura-pdf-mupdf 0.4.1 due to mupdf version dep
 https://github.com/pwmt/zathura-pdf-mupdf/archive/refs/tags/0.4.1.tar.gz
 
 apt build-dep zathura mupdf
+apt install wget libmupdf-dev zathura-dev neofetch
+. /etc/bash_completion
+cd
+wget https://github.com/pwmt/zathura-pdf-mupdf/archive/refs/tags/0.4.1.tar.gz
+
+cd zathura-pdf-mupdf-0.4.1/
+
+
+
  apt-get source mupdf
 ```
 
 i commented following in meson.build
+if not present run meson build first and comment
 ```
   build_dependencies += [
  
@@ -52,26 +62,47 @@ meson build
 cd build
 ninja
 
-testing 
-cp libpdf-mupdf.so   ~/opt/mupdf/
-zathura -p ~/opt/mupdf/
-missing dependecies blah blah blah
-sudo apt install libjbig2dec0 libgumbo1
+threedots download : path
+/home/xkailashxx/deb/root/zathura-pdf-mupdf-0.4.1/build/libpdf-mupdf.so
 
-finally works 
+```
+
+testing
+````
+cd ~/Downloads
+mkdir -p ~/opt/lib/
+mv libpdf-mupdf.so   ~/opt/lib/
+zathura -p ~/opt/lib/
+missing dependecies blah blah blah
+
+on host system 
+sudo  apt install libjbig2dec0 libgumbo1
+```
+
+finally works
+
 
 copy it to zathura plugin dir  /usr/lib/x86_64-linux-gnu/zathura/
+
+```
 sudo install -m 755 -o root -g root  libpdf-mupdf.so /usr/lib/x86_64-linux-gnu/zathura/
 zathura
 error: Could not load plugin '/usr/lib/x86_64-linux-gnu/zathura/libpdf-mupdf.so' (/usr/lib/x86_64-linux-gnu/zathura/libpdf-mupdf.so: cannot open shared object file: Permission denied).
 zatura 
 error: plugin: filetype already registered: application/pdf
+need to remove /usr/lib/x86_64-linux-gnu/zathura/libpdf-poppler.so to avoid conflict 
 
 ```
 
 
+
+
+
+
+
 Dependencies for zathura-pdf-mupdf
 
+```
 from 
 
 https://github.com/pwmt/zathura-pdf-mupdf/tags
