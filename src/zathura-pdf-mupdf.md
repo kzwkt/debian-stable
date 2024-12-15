@@ -1,6 +1,22 @@
-in google/amazon/azure/github-codespace whatever   
+in google/amazon/azure/github-codespace whatever  
+
+https://shell.cloud.google.com/?hl=en_US&authuser=1&fromcloudshell=true&show=terminal
+
 sudo mount -o rw,remount,exec,dev,suid  /home   
-debootstrap stable deb   
+
+sudo apt install debootstrap -y
+
+sudo debootstrap stable deb   
+
+echo nameserver 1.1.1.1  > /etc/resolv.conf
+
+sudo bash chroot.sh deb
+
+nano /etc/apt/sources.list 
+
+deb-src https://deb.debian.org/debian stable main
+
+
 
 
 ```
@@ -14,8 +30,8 @@ we can go with zathura-pdf-mupdf 0.4.1 due to mupdf version dep
 
 https://github.com/pwmt/zathura-pdf-mupdf/archive/refs/tags/0.4.1.tar.gz
 
-apt install build-essential libmupdf-dev zathura-dev
-apt build-dep zathura mupdf
+sudo apt install build-essential libmupdf-dev zathura-dev
+sudo apt build-dep zathura mupdf
  apt-get source mupdf
 ```
 
