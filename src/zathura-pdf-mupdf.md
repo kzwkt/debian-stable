@@ -1,6 +1,8 @@
 in google/amazon/azure/github-codespace whatever   
 sudo mount -o rw,remount,exec,dev,suid  /home   
 debootstrap stable deb   
+
+
 ```
 debian Stable 
 Mupdf 1.21.1+ds2-1 	
@@ -54,7 +56,20 @@ error: plugin: filetype already registered: application/pdf
 
 
 Dependencies for zathura-pdf-mupdf
+
+from 
+
+https://github.com/pwmt/zathura-pdf-mupdf/tags
+
+https://github.com/pwmt/zathura-pdf-mupdf/tree/0.4.4 etc
 ```
+version 
+zathura (>= 0.2.0)
+girara
+mupdf (>= 1.24.0)
+meson (>= 0.61)
+
+
 Version 0.4.3
 zathura (>= 0.2.0)
 girara
@@ -82,41 +97,6 @@ GLib
 Cairo
 GTK+
 
-Version 0.4.0
-zathura (>= 0.2.0)
-girara
-mupdf (>= 1.14.0)
-meson (>= 0.50) for building
-GLib
-Cairo
-GTK+
-
-Version 0.3.9
-zathura (>= 0.2.0)
-girara
-mupdf (>= 1.12.0)
-meson (>= 0.50) for building
-GLib
-Cairo
-GTK+
-
-Version 0.3.8
-zathura (>= 0.2.0)
-girara
-mupdf (>= 1.10.0)
-meson (>= 0.50) for building
-GLib
-Cairo
-GTK+
-
-Version 0.3.7
-zathura (>= 0.2.0)
-girara
-mupdf (>= 1.8.0)
-meson (>= 0.50) for building
-GLib
-Cairo
-GTK+
 ```
 https://salsa.debian.org/sramacher/zathura
 
@@ -127,29 +107,34 @@ https://tracker.debian.org/pkg/zathura
 	 	 o-o-stable: 	 	 	0.4.3-1 	
 	 	 oldstable: 	 	 	0.4.7-1 	
 	 	 stable: 	 	 	0.5.2-1 	
-	 	 testing: 	 	 	0.5.6-1 	
-	 	 unstable: 	 	 	0.5.6-1 	
+	 	 testing: 	 	 	0.5.8-1	
+	 	 unstable: 	 	 	0.5.10-1	
 https://tracker.debian.org/pkg/mupdf
 	 	 o-o-stable: 	 	 	1.14.0+ds1-4+deb10u3 	
 	 	 o-o-sec: 	 	 	1.14.0+ds1-4+deb10u2 	
 	 	 oldstable: 	 	 	1.17.0+ds1-2 	
-	 	 old-sec: 	 	 	1.17.0+ds1-1.3~deb11u1 	
+	 	 old-sec: 	 	 	1.17.0+ds1-1.3~deb11u1
 	 	 stable: 	 	 	1.21.1+ds2-1 	
-	 	 testing: 	 	 	1.23.10+ds1-1 	
-	 	 unstable: 	 	 	1.24.3+ds1-1 	
+	 	 testing: 	 	 	1.24.10+ds1-1 	
+	 	 unstable: 	 	 	1.24.10+ds1-1
+
 https://tracker.debian.org/pkg/girara
-	 	 o-o-stable: 	 	 	0.3.2-1 	
-	 	 oldstable: 	 	 	0.3.5-1 	
-	 	 stable: 	 	 	0.4.0-1 	
-	 	 testing: 	 	 	0.4.4-1 	
-	 	 unstable: 	 	 	0.4.4-1 	
+    o-o-stable: 0.3.2-1
+    oldstable: 0.3.5-1
+    stable: 0.4.0-1
+    testing: 0.4.4-1
+    unstable: 0.4.5-1
+
 https://tracker.debian.org/pkg/meson
-	 	 o-o-stable: 	 	 	0.49.2-1 	
-	 	 oldstable: 	 	 	0.56.2-1 	
-	 	 old-bpo: 	 	 	1.0.0-1.1~bpo11+1 	
-	 	 stable: 	 	 	1.0.1-5 	
-	 	 testing: 	 	 	1.4.1-1 	
-	 	 unstable: 	 	 	1.4.1-1 	
+    o-o-stable: 0.49.2-1
+    oldstable: 0.56.2-1
+    old-bpo: 1.0.0-1.1~bpo11+1
+    stable: 1.0.1-5
+    stable-bpo: 1.5.1-1~bpo12+1
+    testing: 1.6.0-1
+    unstable: 1.6.0-1
+
+
 ```
 
 
