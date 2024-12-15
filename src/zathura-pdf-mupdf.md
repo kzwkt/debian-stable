@@ -99,40 +99,40 @@ GTK+
 
 ```
 https://salsa.debian.org/sramacher/zathura
-
 Stable 
 0.4.9-1
 ```
 https://tracker.debian.org/pkg/zathura
-	 	 o-o-stable: 	 	 	0.4.3-1 	
-	 	 oldstable: 	 	 	0.4.7-1 	
-	 	 stable: 	 	 	0.5.2-1 	
-	 	 testing: 	 	 	0.5.8-1	
-	 	 unstable: 	 	 	0.5.10-1	
+	o-o-stable: 	 	 	0.4.3-1 	
+	oldstable: 	 	 	0.4.7-1 	
+	stable: 	 	 	0.5.2-1 	
+	testing: 	 	 	0.5.8-1	
+	unstable: 	 	 	0.5.10-1
+
 https://tracker.debian.org/pkg/mupdf
-	 	 o-o-stable: 	 	 	1.14.0+ds1-4+deb10u3 	
-	 	 o-o-sec: 	 	 	1.14.0+ds1-4+deb10u2 	
-	 	 oldstable: 	 	 	1.17.0+ds1-2 	
-	 	 old-sec: 	 	 	1.17.0+ds1-1.3~deb11u1
-	 	 stable: 	 	 	1.21.1+ds2-1 	
-	 	 testing: 	 	 	1.24.10+ds1-1 	
-	 	 unstable: 	 	 	1.24.10+ds1-1
+	o-o-stable: 	 	 	1.14.0+ds1-4+deb10u3 	
+	o-o-sec: 	 	 	1.14.0+ds1-4+deb10u2 	
+	oldstable: 	 	 	1.17.0+ds1-2 	
+	old-sec: 	 	 	1.17.0+ds1-1.3~deb11u1
+	stable: 	 	 	1.21.1+ds2-1 	
+	testing: 	 	 	1.24.10+ds1-1 	
+	unstable: 	 	 	1.24.10+ds1-1
 
 https://tracker.debian.org/pkg/girara
-    o-o-stable: 0.3.2-1
-    oldstable: 0.3.5-1
-    stable: 0.4.0-1
-    testing: 0.4.4-1
-    unstable: 0.4.5-1
+	o-o-stable: 0.3.2-1
+	oldstable: 0.3.5-1
+	stable: 0.4.0-1
+	testing: 0.4.4-1
+	unstable: 0.4.5-1
 
 https://tracker.debian.org/pkg/meson
-    o-o-stable: 0.49.2-1
-    oldstable: 0.56.2-1
-    old-bpo: 1.0.0-1.1~bpo11+1
-    stable: 1.0.1-5
-    stable-bpo: 1.5.1-1~bpo12+1
-    testing: 1.6.0-1
-    unstable: 1.6.0-1
+	o-o-stable: 0.49.2-1
+	oldstable: 0.56.2-1
+	old-bpo: 1.0.0-1.1~bpo11+1
+	stable: 1.0.1-5
+	stable-bpo: 1.5.1-1~bpo12+1
+	testing: 1.6.0-1
+	unstable: 1.6.0-1
 
 
 ```
