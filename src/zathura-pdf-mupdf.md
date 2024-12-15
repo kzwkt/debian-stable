@@ -30,8 +30,7 @@ we can go with zathura-pdf-mupdf 0.4.1 due to mupdf version dep
 
 https://github.com/pwmt/zathura-pdf-mupdf/archive/refs/tags/0.4.1.tar.gz
 
-sudo apt install build-essential libmupdf-dev zathura-dev
-sudo apt build-dep zathura mupdf
+apt build-dep zathura mupdf
  apt-get source mupdf
 ```
 
