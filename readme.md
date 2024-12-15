@@ -77,7 +77,9 @@ sudo /sbin/dpkg-reconfigure locales
 ```
 
 
- 
+```
+xdg-mime default nnn.desktop inode/directory
+``` 
 
 
 
