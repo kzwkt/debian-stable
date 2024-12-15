@@ -68,7 +68,7 @@ threedots download : path
 ```
 
 testing
-````
+```
 cd ~/Downloads
 mkdir -p ~/opt/lib/
 mv libpdf-mupdf.so   ~/opt/lib/
@@ -91,19 +91,12 @@ error: Could not load plugin '/usr/lib/x86_64-linux-gnu/zathura/libpdf-mupdf.so'
 zatura 
 error: plugin: filetype already registered: application/pdf
 need to remove /usr/lib/x86_64-linux-gnu/zathura/libpdf-poppler.so to avoid conflict 
-
 ```
-
-
-
-
-
 
 
 Dependencies for zathura-pdf-mupdf
 
-```
-from 
+from
 
 https://github.com/pwmt/zathura-pdf-mupdf/tags
 
