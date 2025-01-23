@@ -6,6 +6,14 @@ apt-mark showmanual | grep -v '^lib'
 ```
 apt install bash-completion  dbus-broker deborphan dialog dosfstools fdisk ffmpeg file fonts-noto-color-emoji foot  grim  htop  intel-media-va-driver-non-free iwd  jq   l3afpad lifeograph tiny-initramfs linux-image-amd64 locales  mandoc mpv   nano neofetch nnn opendoas otpclient  pipewire-audio  slurp sway systemd-boot systemd-oomd systemd-resolved systemd-timesyncd systemd-zram-generator  tar  tzdata  udev   vainfo  wireless-regdb wl-clipboard wofi  zathura  librsvg2-common 
 ```
+
+0 upgraded, 399 newly installed, 0 to remove and 0 not upgraded.
+
+Need to get 279 MB of archives.
+
+After this operation, 1172 MB of additional disk space will be used.
+
+
 recommends and suggested 
 ```
 Suggested packages:
