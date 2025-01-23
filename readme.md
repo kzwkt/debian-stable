@@ -91,6 +91,9 @@ zathura - pdf reader Suggests: www-browser, zathura-ps, zathura-djvu, zathura-cb
 xdg-mime default nnn.desktop inode/directory
 ``` 
 
+```
+systemctl enable iwd
+```
 
 # firmware 
 ```
