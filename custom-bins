@@ -1,0 +1,10 @@
+# no logind-api supoort 
+https://archlinux.org/packages/extra/x86_64/brightnessctl/download/
+
+not in repo
+https://archlinux.org/packages/extra/x86_64/swappy/download/
+
+# perl dependency due to contrib script dont need that 
+apt download i3blocks
+dpkg -x i3blocks* . 
+  
