@@ -28,6 +28,8 @@ Meosn 1.0.1-5
 
 we can go with zathura-pdf-mupdf 0.4.1 due to mupdf version dep
 
+we could build newer version with new mupdf-third but it could have new dependecies 
+
 https://github.com/pwmt/zathura-pdf-mupdf/archive/refs/tags/0.4.1.tar.gz
 
 apt build-dep zathura mupdf
