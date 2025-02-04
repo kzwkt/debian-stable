@@ -40,7 +40,6 @@ cd zathura-pdf-mupdf-0.4.1/
 
 
 
- apt-get source mupdf
 ```
 
 i commented following in meson.build
@@ -54,9 +53,14 @@ if not present run meson build first and comment
 # build from Debian's libmupdf-dev
 #  tesseract = dependency('tesseract')
 #  leptonica = dependency('lept')
+
+via script
+ sed -i -e '/^[[:space:]]*tesseract/s/^[[:space:]]*\(tesseract\)/# \1/' -e '/^[[:space:]]*leptonica/s/^[[:space:]]*\(leptonica\)/# \1/' meson.build
+
 ```
 
-meson build
+
+meson setup build
 ```
 		
 cd build
@@ -80,6 +84,8 @@ sudo  apt install libjbig2dec0 libgumbo1
 ```
 
 finally works
+
+https://github.com/kzwkt/zathura-pdf-mupdf-debian
 
 
 copy it to zathura plugin dir  /usr/lib/x86_64-linux-gnu/zathura/
