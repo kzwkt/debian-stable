@@ -87,7 +87,6 @@ sudo  apt install libjbig2dec0 libgumbo1
 
 finally works
 
-https://github.com/kzwkt/zathura-pdf-mupdf-debian
 
 
 copy it to zathura plugin dir  /usr/lib/x86_64-linux-gnu/zathura/
@@ -187,5 +186,12 @@ https://tracker.debian.org/pkg/meson
 ```
 
 
+# use it 
+```
+https://github.com/kzwkt/zathura-pdf-mupdf-debian/releases
+mkdir -p ~/.local/lib/zathura
+mv ~/Downloads/libpdf-mupdf.so ~/.local/lib/zathura
 
-
+cat reader
+zathura -p ~/.local/lib/zathura/ "$@"
+```
