@@ -19,7 +19,8 @@ canberra-gtk-play --id="desktop-login" --description="Test Login Sound"
 settings-editor
 
 startup sound 
-add to autostart canberra-gtk-play --id="desktop-login"
+add to autostart 
+canberra-gtk-play --id="desktop-login"
 
 logout sound 
 sudo nano /usr/local/bin/xfce4-session
