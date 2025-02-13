@@ -1,4 +1,3 @@
-```
 find /usr/share/icons -type f -iname "*org.xfce*" | sort -u
 
 /usr/share/icons/hicolor/128x128/apps/org.xfce.about.png
