@@ -25,3 +25,5 @@ logout sound
 sudo nano /usr/local/bin/xfce4-session
 /usr/bin/xfce4-session
 canberra-gtk-play --id="desktop-logout"
+
+ sudo chmod +x /usr/local/bin/xfce4-session
