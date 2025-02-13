@@ -1,8 +1,15 @@
 sudo apt install libcanberra-pulse  xsettingsd libcanberra-gtk3-module
 
 canberra-gtk-module" should be in the GTK_MODULES environment variable (re-login may be required);
+
 Check "Enable event sounds" in Settings Manager > Appearance > Settings tab;
-In the Settings Editor set "xsettings/Net/SoundThemeName" to a sound theme located in /usr/share/sounds/;
+xfconf-query -c xsettings -p /Net/EnableEventSounds -s true
+verify xfconf-query -c xsettings -p /Net/EnableEventSounds 
+
+
+In the Settings Editor set "xsettings/Net/SoundThemeName" to a sound theme located in /usr/share/sounds/ or ~/.local/share/sounds/;
+xfconf-query -c xsettings -p /Net/SoundThemeName -s 'Windows XP Default'
+
 Turn on "System Sounds" in audio mixer (e.g. pavucontrol).
 
 sudo apt install gnome-session-canberra 
@@ -10,3 +17,11 @@ for canberra-gtk-play
 canberra-gtk-play --id="desktop-login" --description="Test Login Sound"
 
 settings-editor
+
+startup sound 
+add to autostart canberra-gtk-play --id="desktop-login"
+
+logout sound 
+sudo nano /usr/local/bin/xfce4-session
+/usr/bin/xfce4-session
+canberra-gtk-play --id="desktop-logout"
