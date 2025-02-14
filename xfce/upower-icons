@@ -22,4 +22,12 @@ ln -sf gpm-battery-080-charging.png battery-level-70-charging-symbolic.png
 ln -sf gpm-battery-080-charging.png battery-level-80-charging-symbolic.png
 ln -sf gpm-battery-100-charging.png battery-level-90-charging-symbolic.png
 ln -sf gpm-battery-100-charging.png battery-level-100-charged-symbolic.png
+
+for charging ones, winxp icon  doesnt have these
+for i in {0..100..10}; do ln -sf gpm-battery-$(printf "%03d" $(( (i+10)/20*20 )))-charging.png battery-level-$i$([ $i -eq 100 ] && echo "-charged" || echo "-charging")-symbolic.png; done
+
+for i in {0..100..10}; do level=$(( (i+10)/20*20 )); ln -sf gpm-battery-$(printf "%03d" $level).png battery-level-$i$([ $i -eq 100 ] && echo '-charged' || echo '')-symbolic.png; done
+
+
 ```
+
