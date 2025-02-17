@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# Check if yt-dlp is installed
+if ! command -v yt-dlp &> /dev/null; then
+    echo "yt-dlp could not be found, please install it first."
+    exit 1
+fi
+
+DL_FILE="/tmp/dl"
+
+
+# Infinite loop for downloading videos
+while true; do
+ 
+URL=$(head -n 1 "$DL_FILE") || exit 1  # Get the first URL
+if [ -n "$URL" ]; then
+[ -z "$URL" ] && continue  # Skip empty lines
+
+# Fetch the best  video and audio id
+echo "Fetching available formats for $VIDEO_URL..."
+yt-dlp --cookies-from-browser firefox -F "$URL"  
+# List all available formats
+
+# Let user choose the video and audio formats
+echo "Enter the format code for the best video and audio spe by space: "
+read VIDEO_FORMAT AUDIO_FORMAT
+
+# Download the best video and audio
+echo "Downloading video..."
+ yt-dlp --cookies-from-browser firefox -f "$VIDEO_FORMAT+$AUDIO_FORMAT"  "$URL"
+
+# Check if the merge was successful
+if [ $? -eq 0 ]; then
+echo "Download completed successfully!"
+sed -i '1d' "$DL_FILE"
+else
+echo "There was an error during the download or merge process."
+fi
+
+fi
+
+done
