@@ -45,7 +45,6 @@ gcc-12-base
 gpgv
 grep
 grim
-gsettings-desktop-schemas
 gtk-update-icon-cache
 gzip
 hicolor-icon-theme
