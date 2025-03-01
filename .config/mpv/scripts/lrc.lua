@@ -5,7 +5,6 @@ local options = {
     musixmatch_token = '2409244c3e6cd327eab6e43182188c8a7893ad1879945c6c30e25b',
 }
 local utils = require 'mp.utils'
-require 'mp.options'.read_options(options)
 
 local function show_message(message, is_error)
     if is_error then
