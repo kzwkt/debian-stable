@@ -5,7 +5,6 @@ Listing... Done
 
 
 ```
-Listing...
 adduser/stable,now 3.134 all [installed]
 apt-utils/stable,now 2.6.1 amd64 [installed]
 apt/stable,now 2.6.1 amd64 [installed]
