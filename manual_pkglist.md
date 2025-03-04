@@ -1,5 +1,6 @@
  apt list '?installed !?automatic'
 Listing... Done
+```
 adduser/stable,now 3.134 all [installed]
 apt-utils/stable,now 2.6.1 amd64 [installed]
 apt/stable,now 2.6.1 amd64 [installed]
@@ -288,6 +289,7 @@ xclip/stable,now 0.13-2 amd64 [installed]
 xfce4-helpers/now 99.9.9 all [installed,local]
 xinit/stable,now 1.4.0-1 amd64 [installed]
 xz-utils/stable,now 5.4.1-0.2 amd64 [installed]
+```
 zathura-pdf-poppler-dummy/now 99.9.9 all [installed,local]
 zathura/stable,now 0.5.2-1 amd64 [installed]
 zlib1g/stable,now 1:1.2.13.dfsg-1 amd64 [installed]
