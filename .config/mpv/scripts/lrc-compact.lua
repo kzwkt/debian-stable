@@ -1,16 +1,19 @@
 local options = {musixmatch_token = '2409244c3e6cd327eab6e43182188c8a7893ad1879945c6c30e25b'}
+local allowed_ext = {mp3 = true, flac = true}
 
 mp.register_event('file-loaded', function()
     local path = mp.get_property('path')
-    if not path:match('%.mp3$') then return end
-    
+    local ext = path:match("([^%.]+)$")
+    if not allowed_ext[ext] then return end
+
+
     -- Check existing LRC in same directory
-    local lrc = path:gsub('%.mp3$', '.lrc')
+    local lrc = path:gsub('%.'..ext..'$', '.lrc')
     if io.open(lrc, 'r') then return end
     
     -- Get basic metadata
     local meta = mp.get_property_native('metadata') or {}
-    local title, artist = meta.title, meta.artist
+    local title, artist = meta.TITLE or meta.title, meta.ARTIST or meta.artist
     if not title or not artist then return end
 
     -- Fetch lyrics
