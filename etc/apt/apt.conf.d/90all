@@ -1,10 +1,18 @@
 APT {
 Install-Recommends "0";
 Install-Suggests "0";
+
+AutoRemove {
+RecommendsImportant "false";
+SuggestsImportant "false";
+};
+
 };
 
 Acquire {
 Languages "none";
 GzipIndexes "1";
+IndexTargets::deb::Packages::KeepCompressedAs "gz";
 };
 
+Dir::Cache::srcpkgcache "";
