@@ -5,12 +5,13 @@ bwrap \
 --die-with-parent \
 --new-session \
 --clearenv \
---setenv HOME /home/kai \
+--setenv HOME "$HOME" \
 --setenv GTK_THEME Adwaita:dark \
 --setenv MOZ_ENABLE_WAYLAND 1 \
 --setenv WAYLAND_DISPLAY "$WAYLAND_DISPLAY" \
 --setenv XDG_RUNTIME_DIR "$XDG_RUNTIME_DIR" \
 --setenv PATH /usr/bin \
+--setenv TZ "UTC" \
 --symlink usr/lib /lib \
 --symlink usr/lib64 /lib64 \
 --ro-bind /usr/lib /usr/lib \
