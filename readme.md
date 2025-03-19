@@ -46,7 +46,7 @@ fonts-noto-color-emoji - emoji font
 foot - terminal editor Suggests: foot-themes Provides: x-terminal-emulator    
 htop - cli task manager Suggests: lm-sensors, lsof, strace  
 intel-media-va-driver-non-free - vaapi hwacel for intel gen 8+   Provides: va-driver  Conflicts: intel-media-va-driver  
-iwd - wifi managment Recommends: dbus | dbus-system-bus, wireless-regdb  
+iwd - wifi managment Recommends: dbus | dbus-system-bus, wireless-regdb wont run without  dbus-system-bus   
 jq - parsing swaymessage for screenshot   
 l3afpad - gui text editor   
 lifeograph  - Diary app : will fail silently if no librsvg pixbuf  
