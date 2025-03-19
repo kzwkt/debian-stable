@@ -116,7 +116,36 @@ wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
 ```
 todo: bluetooth and ethernet its in qca folder see dmesg
 
+# secureboot
 
+https://wiki.debian.org/SecureBoot
+
+apt install systemd-boot grub-efi-amd64-signed-
+
+revert 
+
+apt install systemd-boot- grub-efi-amd64-signed
+
+
+apt install systemd-boot shim-signed
+
+MOK
+
+mokutil --disable-validation 
+
+ mokutil --enable-validation
+
+ setup pw 
+
+ apt install sbsigntool
+
+ sbsign --key MOK.priv --cert MOK.pem "/boot/vmlinuz-$VERSION" --output "/boot/vmlinuz-$VERSION.tmp"
+
+ debian key
+
+  mokutil --import /var/lib/shim-signed/mok/MOK.der # prompts for one-time password
+
+  mokutil --test-key /var/lib/shim-signed/mok/MOK.der
 
 
 
