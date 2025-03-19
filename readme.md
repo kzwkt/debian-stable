@@ -99,6 +99,8 @@ systemctl enable iwd
 ```
 
 # firmware 
+
+# ICELAKE GRAPHICS
 ```
 cd /lib/firmware/i915
 wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915/icl_dmc_ver1_09.bin
@@ -106,6 +108,7 @@ wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
 wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915/icl_huc_9.0.0.bin
 ```
 
+# ATH10K QCA9377
 ```
 cd /lib/firmware/ath10k/QCA9377/hw1.0
 wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/ath10k/QCA9377/hw1.0/board-2.bin
@@ -113,8 +116,23 @@ wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
 wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/ath10k/QCA9377/hw1.0/firmware-6.bin
 wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/ath10k/QCA9377/hw1.0/firmware-5.bin
 wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/ath10k/QCA9377/hw1.0/firmware-sdio-5.bin
+
 ```
-todo: bluetooth and ethernet its in qca folder see dmesg
+# bluetooth
+```
+https://web.git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/qca/nvm_usb_00000302.bin
+# this eu is not loaded 
+https://web.git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/qca/nvm_usb_00000302_eu.bin
+https://web.git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/qca/rampatch_usb_00000302.bin
+```
+
+todo:   ethernet its in rtl folder see  dmesg  | grep firmware for missing fw logs
+ ath10k_pci 0000:01:00.0: firmware: failed to load ath10k/pre-cal-pci-0000:01:00.0.bin (-2)
+ath10k_pci 0000:01:00.0: firmware: failed to load ath10k/pre-cal-pci-0000:01:00.0.bin (-2)
+ath10k_pci 0000:01:00.0: firmware: failed to load ath10k/cal-pci-0000:01:00.0.bin (-2)
+ath10k_pci 0000:01:00.0: firmware: failed to load ath10k/cal-pci-0000:01:00.0.bin (-2)
+
+
 
 # secureboot
 
