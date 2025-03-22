@@ -12,7 +12,4 @@ SuggestsImportant "false";
 Acquire {
 Languages "none";
 GzipIndexes "1";
-IndexTargets::deb::Packages::KeepCompressedAs "gz";
 };
-
-Dir::Cache::srcpkgcache "";
