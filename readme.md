@@ -247,12 +247,16 @@ permit persist k
 # autologin 
 mkdir   /etc/systemd/system/getty@tty1.service.d
 nano  /etc/systemd/system/getty@tty1.service.d/skip-prompt.conf
+```
 [Service]
 ExecStart=
 ExecStart=-/sbin/agetty --skip-login --nonewline --noissue --autologin k --noclear %I $TERM
+```
+
 
 # allow iwd without netdev/wheel group for your user k 
 nano /etc/dbus-1/system.d/iwd-allow-read.conf
+```
 <!DOCTYPE busconfig PUBLIC "-//freedesktop//DTD D-BUS Bus Configuration 1.0//EN"
  "http://www.freedesktop.org/standards/dbus/1.0/busconfig.dtd">
 <busconfig>
@@ -260,6 +264,8 @@ nano /etc/dbus-1/system.d/iwd-allow-read.conf
     <allow send_destination="net.connman.iwd"/>
   </policy>
 </busconfig>
+```
+
 
 
 
