@@ -196,6 +196,7 @@ mokutil --disable-validation
 
 # bootloader install
 
+```
 mount esp to /efi
 
 bootctl install
@@ -221,13 +222,35 @@ tab completion works with bash_completion sourced from /etc/ but only up to vmli
 kernel-install add 6.1.0-33-amd64   /boot/vmlinuz-6.1.0-33-amd64 /boot/initrd.img-6.1.0-33-amd64
 
 make sure ls /efi has entries
-  
+
+nano /etc/fstab
+# <file system>	<dir>	<type>	<options>		<dump>	<pass>
+UUID=89c84bd8-32db-4164-bb39-8e3f1d178af5 /home ext4 rw,noatime 0 2
 
 passwd
 
 adduser k
 
 nano /etc/doas.conf
+permit persist k
+
+mkdir   /etc/systemd/system/getty@tty1.service.d
+nano  /etc/systemd/system/getty@tty1.service.d/skip-prompt.conf
+[Service]
+ExecStart=
+ExecStart=-/sbin/agetty --skip-login --nonewline --noissue --autologin k --noclear %I $TERM
+
+nano /etc/dbus-1/system.d/iwd-allow-read.conf
+<!DOCTYPE busconfig PUBLIC "-//freedesktop//DTD D-BUS Bus Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/dbus/1.0/busconfig.dtd">
+<busconfig>
+  <policy group="k">
+    <allow send_destination="net.connman.iwd"/>
+  </policy>
+</busconfig>
+
+
+```
 
 
 
