@@ -2,4 +2,4 @@ Types: deb
 URIs: http://packages.linuxmint.com
 Suites: lmde
 Components: main upstream import backport
-Signed-By: /usr/share/keyrings/mint-archive-keyring.gpg
+Signed-By: /usr/share/keyrings/linuxmint-keyring.gpg
