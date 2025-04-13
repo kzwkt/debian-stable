@@ -1,13 +1,15 @@
 
 # debian dots and configs
 
+echo nameserver 1.1.1.1 > /etc/resolv.conf
+
 apt-mark showmanual | grep -v '^lib'
 
 ```
 apt install bash-completion  dbus-broker deborphan dialog dosfstools fdisk ffmpeg file fonts-noto-color-emoji foot  grim  htop  intel-media-va-driver-non-free iwd  jq   l3afpad lifeograph tiny-initramfs linux-image-amd64 locales  mandoc mpv   nano neofetch nnn opendoas otpclient  pipewire-audio  slurp sway systemd-boot systemd-oomd  systemd-timesyncd systemd-zram-generator  tar  tzdata  udev   vainfo  wireless-regdb wl-clipboard wofi  zathura  librsvg2-common less wlsunset  wtype
 ```
 
-ntfs-3g  bubblewrap  systemd-resolved or openresolv 
+ntfs-3g  bubblewrap  systemd-resolved or openresolv curl ca-certificates
 
 0 upgraded, 399 newly installed, 0 to remove and 0 not upgraded.
 
@@ -44,6 +46,8 @@ Recommended packages:
   libnet-dbus-perl libx11-protocol-perl x11-utils x11-xserver-utils
 
 ```
+
+
 
 ```
 bubblewrap - low level  sandbox  : Recommends: procps  
@@ -93,6 +97,9 @@ zathura - pdf reader Suggests: www-browser, zathura-ps, zathura-djvu, zathura-cb
 
 
 ```
+
+. /etc/bash_completion
+
  /sbin/dpkg-reconfigure tzdata
  timedatectl set-ntp true
  /sbin/dpkg-reconfigure locales
@@ -107,30 +114,40 @@ xdg-mime default nnn.desktop inode/directory
 
 ```
 systemctl enable iwd
+systemctl enable systemd-resolved
 ```
 
 # firmware 
 
 # ICELAKE GRAPHICS
 ```
-cd /lib/firmware/i915
-wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915/icl_dmc_ver1_09.bin
-wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915/icl_guc_70.1.1.bin
-wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915/icl_huc_9.0.0.bin
+cd /lib/firmware/
+mkdir i915
+cd i915
+or curl -O  or wget 
+ https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915/icl_dmc_ver1_09.bin
+ https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915/icl_guc_70.1.1.bin
+ https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915/icl_huc_9.0.0.bin
 ```
 
 # ATH10K QCA9377
 ```
-cd /lib/firmware/ath10k/QCA9377/hw1.0
-wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/ath10k/QCA9377/hw1.0/board-2.bin
-wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/ath10k/QCA9377/hw1.0/board.bin
-wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/ath10k/QCA9377/hw1.0/firmware-6.bin
-wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/ath10k/QCA9377/hw1.0/firmware-5.bin
-wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/ath10k/QCA9377/hw1.0/firmware-sdio-5.bin
+cd /lib/firmware/
+mkdir -p ath10k/QCA9377/hw1.0
+cd ath10k/QCA9377/hw1.0
+or curl -O  or wget 
+ https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/ath10k/QCA9377/hw1.0/board-2.bin
+ https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/ath10k/QCA9377/hw1.0/board.bin
+ https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/ath10k/QCA9377/hw1.0/firmware-6.bin
+ https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/ath10k/QCA9377/hw1.0/firmware-5.bin
+ https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/ath10k/QCA9377/hw1.0/firmware-sdio-5.bin
 
 ```
 # bluetooth
 ```
+cd /lib/firmware/
+mkdir qca
+cd qca
 https://web.git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/qca/nvm_usb_00000302.bin
 # this eu is not loaded 
 https://web.git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/qca/nvm_usb_00000302_eu.bin
@@ -176,6 +193,45 @@ mokutil --disable-validation
 
   mokutil --test-key /var/lib/shim-signed/mok/MOK.der
 
+
+# bootloader install
+
+mount esp to /efi
+
+bootctl install
+
+ blkid /dev/sda1 
+/dev/sda1: UUID="4c532cbf-4d30-43b3-92d0-06322154abc7" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="b35396f5-28d1-47c9-bc13-1cab28b444e2"
+
+nano /etc/kernel/install.conf
+layout=bls
+
+you can set layout=uki in sid which has systemd-ukify
+
+nano /etc/kernel/cmdline
+root=UUID=4c532cbf-4d30-43b3-92d0-06322154abc7 rw quiet
+
+kernel-install
+
+  kernel-install [OPTIONS...] add KERNEL-VERSION KERNEL-IMAGE [INITRD-FILE...]
+  kernel-install [OPTIONS...] remove KERNEL-VERSION
+  kernel-install [OPTIONS...] inspect
+
+tab completion works with bash_completion sourced from /etc/ but only up to vmlinuz
+kernel-install add 6.1.0-33-amd64   /boot/vmlinuz-6.1.0-33-amd64 /boot/initrd.img-6.1.0-33-amd64
+
+make sure ls /efi has entries
+  
+
+passwd
+
+adduser k
+
+nano /etc/doas.conf
+
+
+
+  
 
 
 
