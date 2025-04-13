@@ -9,6 +9,8 @@ apt-mark showmanual | grep -v '^lib'
 apt install bash-completion  dbus-broker deborphan dialog dosfstools fdisk ffmpeg file fonts-noto-color-emoji foot  grim  htop  intel-media-va-driver-non-free iwd  jq   l3afpad lifeograph tiny-initramfs linux-image-amd64 locales  mandoc mpv   nano neofetch nnn opendoas otpclient  pipewire-audio  slurp sway systemd-boot systemd-oomd  systemd-timesyncd systemd-zram-generator  tar  tzdata  udev   vainfo  wireless-regdb wl-clipboard wofi  zathura  librsvg2-common less wlsunset  wtype
 ```
 
+# optional apps
+
 ntfs-3g  bubblewrap  systemd-resolved or openresolv curl ca-certificates
 
 0 upgraded, 399 newly installed, 0 to remove and 0 not upgraded.
@@ -17,10 +19,8 @@ Need to get 279 MB of archives.
 
 After this operation, 1172 MB of additional disk space will be used.
 
-
-recommends and suggested 
+# Suggested packages:
 ```
-Suggested packages:
   libarchive-dev ispell | aspell | hunspell wordlist ffmpeg-doc foot-themes
   lm-sensors lsof strace hunspell openoffice.org-hunspell | openoffice.org-core lrzip
   libasound2-plugins alsa-utils aspell libcuda1 libnvcuvid1 libnvidia-encode1
@@ -33,7 +33,12 @@ Suggested packages:
   xdg-desktop-portal-wlr systemd-container systemd-homed systemd-userdbd
   systemd-resolved libfido2-1 libtss2-esys-3.0.2-0 libtss2-mu0 libtss2-rc0
   wireplumber-doc debhelper www-browser zathura-ps zathura-djvu zathura-cb
-Recommended packages:
+```
+
+# Recommended packages:
+
+```
+
   dbus-bin gettext-base sensible-utils alsa-ucm-conf alsa-topology-conf aspell-en
   | aspell-dictionary | aspell6a-dictionary at-spi2-core libaacs0
   libclutter-1.0-common libcogl-common dbus libdecor-0-plugin-1-cairo
@@ -47,7 +52,7 @@ Recommended packages:
 
 ```
 
-
+# apps info
 
 ```
 bubblewrap - low level  sandbox  : Recommends: procps  
@@ -196,7 +201,6 @@ mokutil --disable-validation
 
 # bootloader install
 
-```
 mount esp to /efi
 
 bootctl install
@@ -223,23 +227,31 @@ kernel-install add 6.1.0-33-amd64   /boot/vmlinuz-6.1.0-33-amd64 /boot/initrd.im
 
 make sure ls /efi has entries
 
+# fstab
 nano /etc/fstab
+```
 # <file system>	<dir>	<type>	<options>		<dump>	<pass>
 UUID=89c84bd8-32db-4164-bb39-8e3f1d178af5 /home ext4 rw,noatime 0 2
+```
 
+# setup users and root password
 passwd
 
 adduser k
 
+# privelage escalation 
 nano /etc/doas.conf
 permit persist k
 
+
+# autologin 
 mkdir   /etc/systemd/system/getty@tty1.service.d
 nano  /etc/systemd/system/getty@tty1.service.d/skip-prompt.conf
 [Service]
 ExecStart=
 ExecStart=-/sbin/agetty --skip-login --nonewline --noissue --autologin k --noclear %I $TERM
 
+# allow iwd without netdev/wheel group for your user k 
 nano /etc/dbus-1/system.d/iwd-allow-read.conf
 <!DOCTYPE busconfig PUBLIC "-//freedesktop//DTD D-BUS Bus Configuration 1.0//EN"
  "http://www.freedesktop.org/standards/dbus/1.0/busconfig.dtd">
@@ -250,7 +262,6 @@ nano /etc/dbus-1/system.d/iwd-allow-read.conf
 </busconfig>
 
 
-```
 
 
 
