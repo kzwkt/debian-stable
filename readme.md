@@ -276,6 +276,17 @@ nano /etc/dbus-1/system.d/iwd-allow-read.conf
 </busconfig>
 ```
 
+# limit journal size
+
+sudo nano /etc/systemd/journald.conf 
+```
+[Journal]
+SystemMaxUse=10M
+```
+
+sudo systemctl restart systemd-journald.service
+
+
 
 
 
