@@ -286,6 +286,11 @@ SystemMaxUse=10M
 
 sudo systemctl restart systemd-journald.service
 
+# after login
+
+sudo timedatectl set-ntp true
+
+sudo  hostnamectl hostname x
 
 
 
