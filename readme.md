@@ -1,7 +1,9 @@
 
 # debian dots and configs
 
+```
 echo nameserver 1.1.1.1 > /etc/resolv.conf
+```
 
 apt-mark showmanual | grep -v '^lib'
 
@@ -97,7 +99,6 @@ wl-clipboard - cli for wayland clipboard Recommends: xdg-utils
 wofi - gui launcher   
 zathura - pdf reader Suggests: www-browser, zathura-ps, zathura-djvu, zathura-cb   
 ```
- 
  
 
 
@@ -209,12 +210,17 @@ bootctl install
 /dev/sda1: UUID="4c532cbf-4d30-43b3-92d0-06322154abc7" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="b35396f5-28d1-47c9-bc13-1cab28b444e2"
 
 nano /etc/kernel/install.conf
+```
 layout=bls
+```
+
 
 you can set layout=uki in sid which has systemd-ukify
 
 nano /etc/kernel/cmdline
+```
 root=UUID=4c532cbf-4d30-43b3-92d0-06322154abc7 rw quiet
+```
 
 kernel-install
 
@@ -223,7 +229,9 @@ kernel-install
   kernel-install [OPTIONS...] inspect
 
 tab completion works with bash_completion sourced from /etc/ but only up to vmlinuz
+```
 kernel-install add 6.1.0-33-amd64   /boot/vmlinuz-6.1.0-33-amd64 /boot/initrd.img-6.1.0-33-amd64
+```
 
 make sure ls /efi has entries
 
@@ -241,7 +249,9 @@ adduser k
 
 # privelage escalation 
 nano /etc/doas.conf
+```
 permit persist k
+```
 
 
 # autologin 
