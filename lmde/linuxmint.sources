@@ -1,5 +1,5 @@
 Types: deb
 URIs: http://packages.linuxmint.com
-Suites: lmde
+Suites: faye
 Components: main upstream import backport
 Signed-By: /usr/share/keyrings/linuxmint-keyring.gpg
