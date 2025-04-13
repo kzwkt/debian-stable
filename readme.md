@@ -19,18 +19,29 @@ After this operation, 1172 MB of additional disk space will be used.
 recommends and suggested 
 ```
 Suggested packages:
-  libarchive-dev ispell | aspell | hunspell wordlist ffmpeg-doc foot-themes lm-sensors lsof strace hunspell openoffice.org-hunspell
-  | openoffice.org-core lrzip libasound2-plugins alsa-utils aspell libcuda1 libnvcuvid1 libnvidia-encode1 libbluray-bdj colord cups-common
-  libdvdcss2 libenchant-2-voikko low-memory-monitor krb5-doc krb5-user gvfs jackd2 liblcms2-utils libportaudio2 opus-tools pciutils pulseaudio
-  libraw1394-doc librsvg2-bin serdi sndiod sordi speex libwacom-bin linux-doc-6.1 debian-kernel-handbook grub-pc | grub-efi-amd64 | extlinux
-  opencl-icd otpclient-cli pulseaudio-utils polkitd-pkla sgml-base-doc swayidle swaylock xdg-desktop-portal-wlr wireplumber-doc debhelper
-  www-browser zathura-ps zathura-djvu zathura-cb
+  libarchive-dev ispell | aspell | hunspell wordlist ffmpeg-doc foot-themes
+  lm-sensors lsof strace hunspell openoffice.org-hunspell | openoffice.org-core lrzip
+  libasound2-plugins alsa-utils aspell libcuda1 libnvcuvid1 libnvidia-encode1
+  libbluray-bdj colord cups-common libdvdcss2 libenchant-2-voikko low-memory-monitor
+  krb5-doc krb5-user gvfs jackd2 liblcms2-utils libportaudio2 opus-tools pciutils
+  pulseaudio libraw1394-doc librsvg2-bin serdi sndiod sordi speex libwacom-bin
+  linux-doc-6.1 debian-kernel-handbook grub-pc | grub-efi-amd64 | extlinux mediainfo
+  | exiftool atool | patool vlock lftp sshfs opencl-icd otpclient-cli
+  pulseaudio-utils polkitd-pkla readline-doc sgml-base-doc swayidle swaylock
+  xdg-desktop-portal-wlr systemd-container systemd-homed systemd-userdbd
+  systemd-resolved libfido2-1 libtss2-esys-3.0.2-0 libtss2-mu0 libtss2-rc0
+  wireplumber-doc debhelper www-browser zathura-ps zathura-djvu zathura-cb
 Recommended packages:
-  gettext-base sensible-utils alsa-ucm-conf alsa-topology-conf aspell-en | aspell-dictionary | aspell6a-dictionary at-spi2-core libaacs0
-  libclutter-1.0-common libcogl-common dbus libdecor-0-plugin-1-cairo | libdecor-0-plugin-1 enchant-2 libgdk-pixbuf2.0-bin libglib2.0-data
-  xdg-user-dirs libgtk-3-bin krb5-locales libpipewire-0.3-common pocketsphinx-en-us poppler-data publicsuffix vdpau-driver-all | vdpau-driver
-  mesa-vulkan-drivers | vulkan-icd libmagickcore-6.q16-6-extra firmware-linux-free apparmor yt-dlp rtkit psmisc suckless-tools sway-backgrounds
-  libfile-mimeinfo-perl libnet-dbus-perl libx11-protocol-perl x11-utils x11-xserver-utils
+  dbus-bin gettext-base sensible-utils alsa-ucm-conf alsa-topology-conf aspell-en
+  | aspell-dictionary | aspell6a-dictionary at-spi2-core libaacs0
+  libclutter-1.0-common libcogl-common dbus libdecor-0-plugin-1-cairo
+  | libdecor-0-plugin-1 enchant-2 libgdk-pixbuf2.0-bin libglib2.0-data xdg-user-dirs
+  libgtk-3-bin krb5-locales libgpm2 libpipewire-0.3-common pocketsphinx-en-us
+  poppler-data publicsuffix vdpau-driver-all | vdpau-driver mesa-vulkan-drivers
+  | vulkan-icd libmagickcore-6.q16-6-extra firmware-linux-free apparmor yt-dlp chafa
+  caca-utils imagemagick jp2a libsixel-bin w3m-img pciutils rtkit psmisc
+  suckless-tools sway-backgrounds efibootmgr libnss-systemd libfile-mimeinfo-perl
+  libnet-dbus-perl libx11-protocol-perl x11-utils x11-xserver-utils
 
 ```
 
