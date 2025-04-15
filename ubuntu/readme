@@ -595,4 +595,4 @@ Summary:
 
 
 apt install  plymouth-theme-ubuntu-text systemd-resolved iwd fwupd rtkit wireless-regdb mate-themes blueman secureboot-db  fwupd-signed systemd-timesyncd dosfstools grub-efi-amd64-signed software-properties-gtk slick-greeter 
-lightdm-settings
+lightdm-settings linux-image-generic initramfs-tools firmware-sof-signed thermald plymouth-theme-ubuntu-text
