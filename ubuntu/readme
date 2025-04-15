@@ -594,4 +594,5 @@ Summary:
   Space needed: 1114 MB / 49.6 GB available
 
 
-apt install  plymouth-theme-ubuntu-text systemd-resolved iwd fwupd rtkit wireless-regdb mate-themes blueman secureboot-db  fwupd-signed systemd-timesyncd dosfstools grub-efi-amd64-signed software-properties-gtk
+apt install  plymouth-theme-ubuntu-text systemd-resolved iwd fwupd rtkit wireless-regdb mate-themes blueman secureboot-db  fwupd-signed systemd-timesyncd dosfstools grub-efi-amd64-signed software-properties-gtk slick-greeter 
+lightdm-settings
