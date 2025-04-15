@@ -13,7 +13,8 @@ Interim Releases
     Ubuntu 24.10 (Oracular Oriole) › oracular
 
 
- apt install cinnamon-desktop-environment
+https://ubuntu-archive-team.ubuntu.com/seeds/ubuntucinnamon.oracular/desktop
+apt install cinnamon-desktop-environment
 
 
 Installing:                     
