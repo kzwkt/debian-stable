@@ -24,3 +24,7 @@ release=$(lsb_release -cs)
 Components: main restricted universe multiverse
 suites: release  release-updates release-security release-backports 
 
+keyring
+curl -o  /usr/share/keyrings/pop-archive-keyring.gpg https://github.com/pop-os/keyring/raw/refs/heads/master/usr/share/keyrings/pop-archive-keyring.gpg
+
+
