@@ -27,4 +27,9 @@ suites: release  release-updates release-security release-backports
 keyring
 curl -o  /usr/share/keyrings/pop-archive-keyring.gpg https://github.com/pop-os/keyring/raw/refs/heads/master/usr/share/keyrings/pop-archive-keyring.gpg
 
+using launchpad
+
+http://ppa.launchpad.net/system76-dev/stable/ubuntu
+
+
 
