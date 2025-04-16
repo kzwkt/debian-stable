@@ -1,0 +1,19 @@
+Types: deb
+URIs: http://apt.pop-os.org/ubuntu
+Suites: noble noble-updates noble-security noble-backports 
+Components: main restricted universe multiverse
+Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+
+
+Types: deb
+URIs: http://apt.pop-os.org/proprietary
+Suites: noble
+Components: main
+Signed-By: /usr/share/keyrings/pop-archive-keyring.gpg
+
+Types: deb
+URIs: http://apt.pop-os.org/release
+Suites: noble
+Components: main
+Signed-By: /usr/share/keyrings/pop-archive-keyring.gpg
+
