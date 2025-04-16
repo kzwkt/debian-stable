@@ -1,0 +1,26 @@
+https://apt.pop-os.org/
+
+
+http://apt.pop-os.org/proprietary
+
+only for LTS ubuntu things like chrome,vscode,vivaldi,discord etc
+
+
+http://apt.pop-os.org/release 
+
+main popos pkg, only LTS ubuntu impish,jammy,noble
+
+
+http://apt.pop-os.org/release-ubuntu
+
+only LTS : jammy and noble 
+firmware,kernel,nvidia driver and system76 apps
+
+
+http://apt.pop-os.org/ubuntu
+
+ubuntu mirror for all ubuntu release
+release=$(lsb_release -cs)
+Components: main restricted universe multiverse
+suites: release  release-updates release-security release-backports 
+
