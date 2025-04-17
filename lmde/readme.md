@@ -56,13 +56,30 @@ gdebi-core
 ```
 
 # postinstall
-
+```
 kernel : linux-image-generic initramfs-tools firmware-sof-signed thermald
 bootloader : grub-efi-amd64-signed    os-prober efibootmgr secureboot-db shim-signed
 wifi :  iwd wireless-regdb systemd-resolved
 login manager : slick-greeter
+xorg: xserver-xorg-input-libinput xinit
 
 
 dpkg-reconfigure grub-efi-amd64
+passwd
+adduser x
 
 
+update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/mint-logo/mint-logo.plymouth  1
+00
+ update-initramfs -u
+ plymouthd ; sudo plymouth --show-splash ; sleep 10 ; sudo killall plymouthd
+
+
+mkdir /boot/efi
+mount /dev/sda20 /boot/efi
+grub-install /dev/sda
+
+efibootmgr
+Boot0003* Ubuntu	HD(20,GPT,f59beedb-9fbe-ed4e-b33f-b06a275555d7,0x62dfa800,0x100000)/File(\EFI\ubuntu\shimx64.efi)
+
+```
