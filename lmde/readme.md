@@ -55,3 +55,14 @@ gdebi
 gdebi-core
 ```
 
+# postinstall
+
+kernel : linux-image-generic initramfs-tools firmware-sof-signed thermald
+bootloader : grub-efi-amd64-signed    os-prober efibootmgr secureboot-db shim-signed
+wifi :  iwd wireless-regdb systemd-resolved
+login manager : slick-greeter
+
+
+dpkg-reconfigure grub-efi-amd64
+
+
