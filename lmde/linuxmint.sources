@@ -3,3 +3,10 @@ URIs: http://packages.linuxmint.com
 Suites: faye
 Components: main upstream import backport
 Signed-By: /usr/share/keyrings/linuxmint-keyring.gpg
+
+
+Types: deb
+URIs: http://packages.linuxmint.com
+Suites: xia
+Components: main upstream import backport
+Signed-By: /usr/share/keyrings/linuxmint-keyring.gpg
