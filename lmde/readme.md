@@ -32,3 +32,26 @@ Ubuntu 22.04 LTS (Jammy Jellyfish)
 Ubuntu 20.04 LTS (Focal Fossa)
 20,20.1,20.2,20.3 Ulyana,Ulyssa,uma,Una = focal
 ```
+
+from https://github.com/linuxmint/mint-upgrade-info/blob/master/usr/share/mint-upgrade-info/wilma/
+```
+includes: 
+xapp-ora-thumbnailer
+power-profiles-daemon
+mint-backgrounds-wallpapers
+captain
+
+blacklist:
+linux-kernel
+bcmwl
+ubuntu-drivers-common
+virtualbox
+
+remove:
+synaptic
+apturl
+apturl-common
+gdebi
+gdebi-core
+```
+
