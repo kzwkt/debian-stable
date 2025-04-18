@@ -293,6 +293,25 @@ sudo timedatectl set-ntp true
 sudo  hostnamectl hostname x
 
 
+# hibernate on swapfile
+```
+sudo fallocate -l 4G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap -U clear /swapfile
+sudo swapon /swapfile
+echo '/swapfile none swap defaults 0 0' | sudo tee -a /etc/fstab
+
+sudo filefrag -v /swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}'
+3872768
+findmnt -no UUID /
+a49585a1-496f-4f3d-abde-919555421678
+
+/etc/default/grub
+GRUB_CMDLINE_LINUX_DEFAULT="rw quiet splash resume=UUID=a49585a1-496f-4f3d-abde-919555421678 resume_offset=3872768"
+
+update-initramfs -u
+
+```
 
 
 
