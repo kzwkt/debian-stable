@@ -1,0 +1,28 @@
+
+https://community-packages.deepin.com/deepin/
+
+
+apricot contrib main non-free
+beige beige-security crimson
+
+
+ https://community-store-packages.deepin.com/appstore eagle appstore
+https://community-packages.deepin.com/printer/ eagle non-free
+
+https://community-packages.deepin.com/immutable-repos/
+
+
+https://community-packages.deepin.com/driver-23
+https://community-packages.deepin.com/beige/
+https://com-store-packages.uniontech.com/appstore
+
+
+
+sources.list 
+https://com-store-packages.uniontech.com/appstorev23 beige appstore
+https://community-packages.deepin.com/driver-23 driver non-free
+
+
+
+
+
