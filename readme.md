@@ -313,7 +313,15 @@ update-initramfs -u
 
 ```
 
+# delete old efi 
+└─$efibootmgr
 
+Boot0001* Ubuntu
+
+
+sudo efibootmgr -b 0001 -B
+
+its gone rip
 
 
   
