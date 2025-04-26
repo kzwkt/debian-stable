@@ -309,6 +309,12 @@ a49585a1-496f-4f3d-abde-919555421678
 /etc/default/grub
 GRUB_CMDLINE_LINUX_DEFAULT="rw quiet splash resume=UUID=a49585a1-496f-4f3d-abde-919555421678 resume_offset=3872768"
 
+or
+
+/etc/kernel/cmdline
+root=UUID=4c532cbf-4d30-43b3-92d0-06322154abc7 rw quiet resume=UUID=4c532cbf-4d30-43b3-92d0-06322154abc7 resume_offset=2199552
+
+
 update-initramfs -u
 
 ```
