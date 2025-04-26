@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if ! systemctl --user is-active firefox.scope > /dev/null; then
+    systemd-run --user --scope --unit=firefox -p MemoryMax=3G ~/opt/firefox/firefox "$@"
+else
+    ~/opt/firefox/firefox "$@"
+fi
