@@ -216,7 +216,6 @@ ln -s utilities-terminal.png org.xfce.terminalemulator.png
 
 
 ln -s preferences-desktop-accessibility.png org.xfce.settings.accessibility.png
-ln -s abiword.png l3afpad.png
 
 ln -s applets-screenshooter.png org.xfce.screenshooter.png
 ln -s background.png org.xfce.xfdesktop.png
@@ -224,7 +223,7 @@ ln -s evince.png org.pwmt.zathura.png
 ln -s rhythmbox.png mpv.png 
 ln -s utilities-system-monitor.png  
 ln -s desktop.png org.xfce.panel.showdesktop.png
- ln -s browser.png org.xfce.webbrowser.png
+
 
 ~/.local/share/icons/Windows-7-master/apps/32
 
@@ -233,8 +232,19 @@ ln -s gedit.png l3afpad.png
 ln -s web-browser.png org.xfce.webbrowser.png
 ln -s web-browser.png firefox.png
 ln -s file-manager.png org.xfce.thunar.png
-
-   
+ln -s 7za.png  xarchiver.png
+ln -s utilities-terminal.png org.xfce.terminal.png
+ln -sf gedit.png l3afpad.png 
+ln -s browser.png org.xfce.webbrowser.png
+ln -s rhythmbox.png mpv.png
+ln -s batstat.png org.xfce.powermanager.png 
+ln -s eog.png  org.xfce.ristretto.png
+  ln -s file-types-properties.png org.xfce.settings.default-applications.png
+ln -s gnome-about-logo.png org.xfce.about.png
+ln -s preferences-desktop-theme.png org.xfce.xfdesktop.png
+ln -s gnome-display-properties.png org.xfce.settings.display.png
+ln -s gnome-run.png  org.xfce.appfinder.png
+ ln -s evolution.png  org.xfce.mailreader.png
 
 
 
