@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Define the path to the themerc file
+THEMERC_FILE="/home/k/.local/share/themes/7/xfwm4/themerc"
+
+# Function to get color from color picker with OK button
+get_color() {
+    color=$(yad --title="Choose Color" --width=300 --height=100 --color --button="Select:0" --button="Cancel:1")
+    if [ $? -eq 1 ]; then
+        # Show error message with YAD
+        yad --title="Error" --width=250 --height=150 --text="Operation cancelled." --button="OK:0" --error
+        exit 1
+    fi
+    echo "$color"
+}
+
+# Get the inactive color
+INACTIVE_COLOR=$(get_color)
+
+# Get the active color
+ACTIVE_COLOR=$(get_color)
+
+# Check if the themerc file exists
+if [ ! -f "$THEMERC_FILE" ]; then
+    # Show error message with YAD
+    yad --title="Error" --width=250 --height=150 --text="Themerc file does not exist at $THEMERC_FILE. Please check the path." --button="OK:0" --error
+    exit 1
+fi
+
+# Update the inactive_color_1 and active_color_1 values in the themerc file
+sed -i "s/^inactive_color_1=.*/inactive_color_1=$INACTIVE_COLOR/" "$THEMERC_FILE"
+sed -i "s/^active_color_1=.*/active_color_1=$ACTIVE_COLOR/" "$THEMERC_FILE"
+
+# Show success message with YAD
+yad --title="Success" --width=250 --height=150 --text="Colors updated in themerc file." --button="OK:0" --info
+
+# Reload the XFWM4 theme (optional, depending on your environment)
+theme=$(xfconf-query -c xsettings -p /Net/ThemeName)
+xfconf-query -c xsettings -p /Net/ThemeName -r
+xfconf-query -c xsettings -p /Net/ThemeName -s $theme
