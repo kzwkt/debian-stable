@@ -1,0 +1,10 @@
+yad --title="About Windows" \
+    --width=470 --height=300 \
+    --center \
+    --window-icon="computer" \
+    --text-align=center \
+    --text="<span font='Segoe MDL2 Assets 26' foreground='blue'>🪟</span> <span font='Segoe UI Regular 26'>Windows 7</span> <span font='Segoe UI Light 24'>Ultimate</span>" \
+    --form \
+    --field="<span foreground='grey'>     ─────────────────────────────────────────────────────────────────────   </span>":LBL \
+    --field="\n\t\tMicrosoft Windows\n\t\tVersion 6.1 (Build 7601: Service Pack 1)\n\t\t© 2009 Microsoft Corporation. All rights reserved.\n\t\tThe Windows 7 Ultimate operating system and its user interface are\n\t\tprotected by trademark and other pending or existing intellectual property\n\t\trights in the United States and other countries.\n\n\n\n\t\tThis product is under the <span foreground='blue' underline='none'> <a href='https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/default.aspx'>Microsoft Software License \n\t\tTerms to:</a></span>\n\t\t\t$USER":LBL \
+    --button=OK:0 
