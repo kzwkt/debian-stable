@@ -28,3 +28,39 @@ sudo nano /usr/local/bin/xfce4-session
 canberra-gtk-play --id="desktop-logout"
 
  sudo chmod +x /usr/local/bin/xfce4-session
+
+rename win 7 snd to freedesktop
+
+#!/bin/bash
+
+# Declare associative array of mappings
+declare -A soundmap=(
+  [service-login.wav]="Windows Logon Sound.wav"
+  [service-logout.wav]="Windows Logoff Sound.wav"
+  [dialog-warning.wav]="Windows Exclamation.wav"
+  [dialog-error.wav]="Windows Critical Stop.wav"
+  [dialog-information.wav]="Windows Notify.wav"
+  [message.wav]="Windows Balloon.wav"
+  [message-new-instant.wav]="Windows Notify.wav"
+  [bell.wav]="Windows Ding.wav"
+  [device-added.wav]="Windows Hardware Insert.wav"
+  [device-removed.wav]="Windows Hardware Remove.wav"
+  [complete.wav]="Windows Print complete.wav"
+  [trash-empty.wav]="recycle.wav"
+  [camera-shutter.wav]="Windows Information Bar.wav"
+  [suspend-error.wav]="Windows Battery Critical.wav"
+  [phone-incoming-call.wav]="Windows Ringin.wav"
+  [phone-outgoing-busy.wav]="Windows Ringout.wav"
+  [phone-outgoing-calling.wav]="Windows Ringout.wav"
+  [audio-volume-change.wav]="Windows Navigation Start.wav"
+)
+
+# Perform the renaming
+for src in "${!soundmap[@]}"; do
+  if [[ -f "$src" ]]; then
+    mv -v -- "$src" "${soundmap[$src]}"
+  else
+    echo "Missing: $src"
+  fi
+done
+
