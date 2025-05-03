@@ -1,9 +1,9 @@
 #!/bin/bash
 
 yad --title="System" \
-    --width=1000 --height=200 \
+    --width=760 --height=200 \
     --center \
-    --image=start-here --image-placement=right --image-on-top \
+    --window-icon=start-here \
     --text-align=left \
     --button="Close":0 \
     --text="
@@ -12,7 +12,8 @@ yad --title="System" \
 Windows edition<span color='grey'>───────────────────────────────────────────────────────────────────────────────────────────────────────────────</span>
 Windows 7 Enterprise                                                                                         
 Copyright © 2009 Microsoft Corporation. All rights reserved.
-Service Pack 1                                                                            
+Service Pack 1 
+                                                                                                                                                                                                  <span font='Segoe MDL2 Assets 56' foreground='blue'>🪟</span>                          
 
   
 
