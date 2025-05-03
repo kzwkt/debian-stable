@@ -1,0 +1,35 @@
+#!/bin/bash
+
+yad --title="System" \
+    --width=1000 --height=200 \
+    --center \
+    --image=start-here --image-placement=right --image-on-top \
+    --text-align=left \
+    --button="Close":0 \
+    --text="
+<span font='Segoe UI Regular 12' foreground='blue'>View basic information about your computer</span>
+
+Windows edition<span color='grey'>───────────────────────────────────────────────────────────────────────────────────────────────────────────────</span>
+Windows 7 Enterprise                                                                                         
+Copyright © 2009 Microsoft Corporation. All rights reserved.
+Service Pack 1                                                                            
+
+  
+
+System<span color='grey'>────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span>
+Rating: \t\t\t\t\t<span foreground='blue' weight='bold' size='xx-large'>5.9</span> Windows Experience Index
+Processor:\t\t\t\tIntel(R) Core(TM) i5-1035G1 CPU @ 1.00GHz
+Installed memory (RAM):\t 4.00 GB
+System type: \t\t\t\t64-bit Operating System
+Pen and Touch: \t\t\tNo Pen or Touch Input is available for this Display
+
+Computer name, domain, and workgroup settings<span color='grey'>─────────────────────────────────────────────────────────────────────────────────</span>
+Computer name: MY-PC
+Full computer name: MY-PC.local
+Computer description: Personal Workstation
+Workgroup: WORKGROUP
+
+Windows activation<span color='grey'>────────────────────────────────────────────────────────────────────────────────────────────────────────────</span>
+Windows is activated
+Product ID: 12345-67890-ABCDE-FGHIJ
+<span foreground='blue'><u>[Change product key]</u></span>                                                                                                                                                             ✅ Genuine Microsoft Software"
