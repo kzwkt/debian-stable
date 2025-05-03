@@ -19,3 +19,15 @@ https://github.com/kzwkt/debian-stable/raw/refs/heads/main/xfce/7/7.7z
 
 # audacious 
 https://github.com/kzwkt/audacious-bin/releases
+
+# winamp 2 skin ; audacious
+https://archive.org/details/winampskins
+
+https://skins.webamp.org/
+
+# wallpapers
+https://archive.org/details/Windows-wallcollection/
+
+# sound original
+https://archive.org/details/windows-7-windows-media-Default-Sound
+
