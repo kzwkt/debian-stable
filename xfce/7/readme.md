@@ -7,10 +7,15 @@ https://github.com/kzwkt/Windows-7-icon
 https://github.com/kzwkt/Windows-7
 
 # cursor
-aero.7z
+https://github.com/kzwkt/debian-stable/raw/refs/heads/main/xfce/7/aero.7z
+
+7z x aero.7z
+
 
 # freedesktop sound
-7.7z
+https://github.com/kzwkt/debian-stable/raw/refs/heads/main/xfce/7/7.7z
+
+7z x 7.7z
 
 # audacious 
 https://github.com/kzwkt/audacious-bin/releases
