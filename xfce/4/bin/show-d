@@ -1,0 +1,4 @@
+## genmon script for win7 like show-desktop look
+
+#!/bin/bash
+echo "<img>/home/k/.local/share/icons/7/apps/org.xfce.panel.showdesktop.png</img><click>xdotool key Super+d</click><tool>Show Desktop Toggle</tool>"
