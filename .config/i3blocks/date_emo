@@ -71,7 +71,7 @@ ampm=$(date "+%p")          # AM or PM
 
 # AM/PM emoji-like labels
 if [[ "$ampm" == "AM" ]]; then
-  ampm_emoji="🅰️🇲"
+  ampm_emoji="🇦 🇲"
 else
   ampm_emoji="🇵 🇲"
 fi
