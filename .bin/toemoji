@@ -1,0 +1,46 @@
+#!/bin/bash
+
+to_emoji_string() {
+  local input="$1"
+  local emoji=""
+  local sep=$'\u200A'  # Hair space separator
+
+  # Digit emojis indexed by digit character
+  local digits=(0️⃣ 1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣ 6️⃣ 7️⃣ 8️⃣ 9️⃣)
+
+  # Letter to regional indicator emoji map
+  declare -A letters_map=(
+    [A]="🇦" [B]="🇧" [C]="🇨" [D]="🇩" [E]="🇪" [F]="🇫" [G]="🇬" [H]="🇭"
+    [I]="🇮" [J]="🇯" [K]="🇰" [L]="🇱" [M]="🇲" [N]="🇳" [O]="🇴" [P]="🇵"
+    [Q]="🇶" [R]="🇷" [S]="🇸" [T]="🇹" [U]="🇺" [V]="🇻" [W]="🇼" [X]="🇽"
+    [Y]="🇾" [Z]="🇿"
+  )
+
+  for (( i=0; i<${#input}; i++ )); do
+    char="${input:i:1}"
+
+    if [[ "$char" =~ [0-9] ]]; then
+      emoji+="${digits[$char]}"
+    else
+      char_upper=$(echo "$char" | tr '[:lower:]' '[:upper:]')
+      if [[ -n "${letters_map[$char_upper]}" ]]; then
+        emoji+="${letters_map[$char_upper]}${sep}"
+      else
+        emoji+="$char"
+      fi
+    fi
+  done
+
+  # Remove trailing separator if present
+  emoji="${emoji%$sep}"
+
+  echo "$emoji"
+}
+
+# Main entry point
+if [[ $# -eq 0 ]]; then
+  echo "Usage: $0 <string>"
+  exit 1
+fi
+
+to_emoji_string "$*"
