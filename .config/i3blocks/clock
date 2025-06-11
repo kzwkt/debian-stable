@@ -1,5 +1,6 @@
 #!/bin/sh
 case $BLOCK_BUTTON in
-	6) foot -e "$EDITOR" "$0" ;;
+	6) foot nano "$0" ;;
 esac
-date "+%y %b %d (%a) %I:%M%p"
+#date "+%y %b %d (%a) %I:%M%p"
+date '+%H:%M'
