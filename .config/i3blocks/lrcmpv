@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+
+LYRICS_FILE="/tmp/mpv_lyrics"
+
+if [[ -s "$LYRICS_FILE" ]]; then
+    head -n 1 "$LYRICS_FILE"
+else
+    echo ""
+fi
