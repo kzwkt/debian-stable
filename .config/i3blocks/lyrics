@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+MPV_SOCKET="/tmp/mpv"
+
+# Get current song path
+song_path=$(echo '{"command":["get_property","path"]}' | nc -U -N "$MPV_SOCKET" 2>/dev/null | sed -n 's/.*"data":"\([^"]*\)".*/\1/p')
+[[ -z "$song_path" ]] && echo "" && exit
+
+lrc_path="${song_path%.*}.lrc"
+[[ ! -f "$lrc_path" ]] && echo "" && exit
+
+# Load LRC into arrays
+times=(); lines=()
+while IFS= read -r line; do
+    while [[ "$line" =~ \[([0-9]+):([0-9]+)(\.([0-9]+))?\] ]]; do
+        min=${BASH_REMATCH[1]}
+        sec=${BASH_REMATCH[2]}
+        frac=${BASH_REMATCH[4]:-0}
+        ts=$(printf "%d.%02d" $((10#$min * 60 + 10#$sec)) $((10#$frac)))
+        times+=("$ts")
+        line="${line#*\]}"
+    done
+    lines+=("$line")
+done < "$lrc_path"
+
+# Get current playback time
+time=$(echo '{"command":["get_property","time-pos"]}' | nc -U -N "$MPV_SOCKET" 2>/dev/null | sed -n 's/.*"data":\([^}]*\).*/\1/p')
+[[ -z "$time" || "$time" == "null" ]] && echo "" && exit
+cmp_time=$(printf "%.2f" "$time")
+
+# Find current line index
+idx=-1
+for ((i = 0; i < ${#times[@]}; i++)); do
+    awk_cmp=$(awk -v a="${times[i]}" -v b="$cmp_time" 'BEGIN {print (a <= b) ? 1 : 0}')
+    [[ "$awk_cmp" -eq 1 ]] && idx=$i
+done
+
+# Output line
+if (( idx >= 0 )); then
+    echo "${lines[idx]}"
+else
+    echo ""
+fi
