@@ -1,4 +1,6 @@
-[lrcmpv]
-interval=1
+[lyrics]
+interval=once
 align=left
-min_width=960
+min_width=1500
+align=center
+signal=10
