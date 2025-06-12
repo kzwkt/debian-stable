@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+case $BLOCK_BUTTON in
+     1) playerctl.sh play-pause >>/dev/null ;;
+     4) playerctl.sh next  >>/dev/null ;;
+     5) playerctl.sh previous >>/dev/null ;;
+     6) foot nano "$0" ;;
+ esac
 
 LYRICS_FILE="/tmp/mpv_lyrics"
 
