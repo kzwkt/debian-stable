@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<labwc_config>
+
+<desktops>
+<popupTime>1000</popupTime>
+<names>
+<name>1</name>
+<name>2</name>
+</names>
+</desktops>
+
+<keyboard>
+<default />
+<keybind key="F1"> <action name="Execute" command="amixer sset Master toggle"/> </keybind>	
+<keybind key="F2"> <action name="Execute" command="amixer sset Master 5%-"/> </keybind>
+<keybind key="F3"> <action name="Execute" command="amixer sset Master 5%+"/> </keybind>
+<keybind key="F6">  <action name="Execute" command="brightnessctl set 10%-"/>  </keybind>
+<keybind key="F7">  <action name="Execute" command="brightnessctl set +10%"/> </keybind>
+
+<keybind key="A-1">  <action name="GoToDesktop"> <to>1</to> </action>  </keybind>
+<keybind key="A-2"> <action name="GoToDesktop">  <to>2</to> </action> </keybind>
+<keybind key="A-C-1"> <action name="SendToDesktop"> <to>1</to> </action>  </keybind>
+<keybind key="A-C-2"> <action name="SendToDesktop">  <to>2</to> </action> </keybind>
+
+<keybind key="A-q"><action name="Close"/></keybind>
+<keybind key="A-w"><action name="Execute" command="firefox"/></keybind>
+<keybind key="A-e"><action name="Execute" command="foot fm"/></keybind>
+<keybind key="A-r"><action name="Reconfigure"/></keybind>
+<keybind key="A-t"><action name="Execute" command="foot"/></keybind>
+
+<keybind key="A-a"><action name="ToggleMaximize"/> </keybind>
+<keybind key="A-d"><action name="ForEach"><query desktop="current" /><then><action name="Iconify"/></then></action></keybind>
+<keybind key="A-f"><action name="ToggleFullscreen"/> </keybind>
+
+<keybind key="A-b"><action name="ToggleDecorations"/> </keybind>
+</keyboard>
+
+<mouse>
+<default />
+</mouse>
+
+<windowRules>
+<windowRule title="Picture in picture">
+<action name="ToggleAlwaysOnTop" />
+</windowRule>
+</windowRules>
+
+</labwc_config>
