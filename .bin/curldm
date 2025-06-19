@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Usage:
+#   bash curldm "https://example.com/file" "output.mp4"
+
+URL="$1"
+OUTPUT="$2"
+
+# Paste the result of `document.cookie` here (from DevTools Console)
+COOKIE='paste_your_document.cookie_here'
+
+curl -C - \
+  -H "Cookie: $COOKIE" \
+  -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36" \
+  "$URL" \
+  -o "$OUTPUT"
