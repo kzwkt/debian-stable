@@ -11,11 +11,13 @@
 
 <keyboard>
 <default />
-<keybind key="F1"> <action name="Execute" command="amixer sset Master toggle"/> </keybind>	
-<keybind key="F2"> <action name="Execute" command="amixer sset Master 5%-"/> </keybind>
-<keybind key="F3"> <action name="Execute" command="amixer sset Master 5%+"/> </keybind>
-<keybind key="F6">  <action name="Execute" command="brightnessctl set 10%-"/>  </keybind>
-<keybind key="F7">  <action name="Execute" command="brightnessctl set +10%"/> </keybind>
+
+
+<keybind key="F1"> <action name="Execute" command='sh -c "amixer sset Master toggle; pkill -RTMIN+10 sfwbar"'/></keybind>
+<keybind key="F2"> <action name="Execute" command='sh -c "amixer sset Master 5%- ; pkill -RTMIN+10 sfwbar "'/> </keybind>
+<keybind key="F3"> <action name="Execute" command='sh -c "amixer sset Master 5%+ ; pkill -RTMIN+10 sfwbar"'/> </keybind>
+<keybind key="F6">  <action name="Execute" command="brightnessctl set 1%-"/>  </keybind>
+<keybind key="F7">  <action name="Execute" command="brightnessctl set +1%"/> </keybind>
 
 <keybind key="A-1">  <action name="GoToDesktop"> <to>1</to> </action>  </keybind>
 <keybind key="A-2"> <action name="GoToDesktop">  <to>2</to> </action> </keybind>
@@ -27,6 +29,8 @@
 <keybind key="A-e"><action name="Execute" command="foot fm"/></keybind>
 <keybind key="A-r"><action name="Reconfigure"/></keybind>
 <keybind key="A-t"><action name="Execute" command="foot"/></keybind>
+<keybind key="A-i"><action name="Execute" command="sublime_text ~/.config/labwc/rc.xml"/></keybind>
+<keybind key="A-o"><action name="Execute" command="sublime_text ~/.config/sfwbar/sfwbar.config"/></keybind>
 
 <keybind key="A-a"><action name="ToggleMaximize"/> </keybind>
 <keybind key="A-d"><action name="ForEach"><query desktop="current" /><then><action name="Iconify"/></then></action></keybind>
