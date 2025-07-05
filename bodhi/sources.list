@@ -1,0 +1,3 @@
+deb http://us.archive.ubuntu.com/ubuntu jammy-backports main restricted universe multiverse
+deb http://security.ubuntu.com/ubuntu jammy-security main restricted universe  multiverse
+deb http://packages.bodhilinux.com/bodhi jammy b7main
