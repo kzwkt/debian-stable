@@ -1,0 +1,171 @@
+#!/usr/bin/env bash
+
+export PATH="$HOME/opt/google/chrome:$PATH"
+
+BASE="$HOME/opt/google"
+CUR="$BASE/chrome"
+OLD="$BASE/chrome.prev"
+UPD="$BASE/updater"
+WORK="$UPD/work"
+
+URL="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+
+# ─────────────────────────────
+# VERSION COMPARE
+# ─────────────────────────────
+
+version_gt() {
+    IFS='.' read -ra v1 <<< "$1"
+    IFS='.' read -ra v2 <<< "$2"
+
+    for i in 0 1 2 3; do
+        a=${v1[i]:-0}
+        b=${v2[i]:-0}
+        if ((a > b)); then return 0; fi
+        if ((a < b)); then return 1; fi
+    done
+    return 1
+}
+
+ask() {
+    read -rp "$1 [y/N]: " ans
+    [[ "$ans" == "y" || "$ans" == "Y" ]]
+}
+
+fail() {
+    echo "ERROR: $1"
+    rm -rf "$WORK"
+    exit 1
+}
+
+# ─────────────────────────────
+# VERSION INFO
+# ─────────────────────────────
+
+get_installed_version() {
+    command -v google-chrome >/dev/null 2>&1 || return 1
+    google-chrome --version 2>/dev/null | awk '{print $3}'
+}
+
+get_latest_version() {
+    curl -s "https://versionhistory.googleapis.com/v1/chrome/platforms/linux/channels/stable/versions" \
+    | sed -n 's/.*"version": *"\([^"]*\)".*/\1/p' | head -n 1
+}
+
+# ─────────────────────────────
+# HEADER
+# ─────────────────────────────
+
+echo "=============================="
+echo " Chrome Interactive Updater"
+echo "=============================="
+
+installed=$(get_installed_version 2>/dev/null || echo "not installed")
+latest=$(get_latest_version)
+
+echo "Installed : $installed"
+echo "Latest    : $latest"
+echo
+
+# ─────────────────────────────
+# CHECK VERSION
+# ─────────────────────────────
+
+if [ "$installed" != "not installed" ] && ! version_gt "$latest" "$installed"; then
+    echo "[✓] Chrome already up to date"
+    exit 0
+fi
+
+ask "Download Chrome?" || exit 0
+
+# ─────────────────────────────
+# DOWNLOAD (VERSIONED CACHE)
+# ─────────────────────────────
+
+mkdir -p "$UPD"
+
+DEB="$UPD/chrome-$latest.deb"
+
+if [ -f "$DEB" ]; then
+    echo "[*] Using cached package: $DEB"
+else
+    echo "[*] Downloading Chrome..."
+    curl -L --fail --progress-bar -o "$DEB" "$URL" || fail "download failed"
+fi
+
+# ─────────────────────────────
+# EXTRACT
+# ─────────────────────────────
+
+ask "Extract package?" || exit 0
+
+rm -rf "$WORK"
+mkdir -p "$WORK"
+cd "$WORK" || fail "cd failed"
+
+echo "[*] Extracting .deb..."
+ar x "$DEB" || fail "deb extract failed"
+
+echo "[*] Extracting filesystem (data.tar.xz)..."
+tar -xf data.tar.xz || fail "tar extract failed"
+
+# ─────────────────────────────
+# VERIFY STRUCTURE
+# ─────────────────────────────
+
+[ -d "opt/google/chrome" ] || fail "invalid package structure"
+
+echo "[✓] Extraction complete"
+
+# ─────────────────────────────
+# INSTALL
+# ─────────────────────────────
+
+ask "Install Chrome to $CUR ?" || exit 0
+
+echo "[*] Installing..."
+
+rm -rf "$OLD"
+[ -d "$CUR" ] && mv "$CUR" "$OLD"
+
+mv opt/google/chrome "$CUR" || fail "install move failed"
+
+# ─────────────────────────────
+# VERIFY INSTALL
+# ─────────────────────────────
+
+echo "[*] Verifying installation..."
+
+installed_new=$("$CUR/google-chrome" --version 2>/dev/null | awk '{print $3}')
+
+echo "Installed : $installed_new"
+echo "Expected  : $latest"
+
+if [ -z "$installed_new" ]; then
+    echo "ERROR: Chrome broken → rollback"
+    rm -rf "$CUR"
+    [ -d "$OLD" ] && mv "$OLD" "$CUR"
+    rm -rf "$WORK"
+    exit 1
+fi
+
+if [ "$installed_new" != "$latest" ]; then
+    echo "ERROR: version mismatch → rollback"
+    rm -rf "$CUR"
+    [ -d "$OLD" ] && mv "$OLD" "$CUR"
+    rm -rf "$WORK"
+    exit 1
+fi
+
+echo "[✓] Installation verified"
+
+# ─────────────────────────────
+# CLEANUP
+# ─────────────────────────────
+
+ask "Cleanup temporary files?" || exit 0
+
+echo "[*] Cleaning..."
+rm -rf "$WORK"
+
+echo "[✓] Done"
