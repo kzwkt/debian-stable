@@ -59,7 +59,10 @@ apt install  vainfo  wireless-regdb wl-clipboard wofi  zathura wl-clipboard wofi
  timedatectl set-ntp true  // not in chroot
  systemctl enable iwd
 ```
- 
+# install useful pkg
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+dpkg -i google-chrome-stable_current_amd64.deb
+apt install -f 
 
 # debian dots and configs
 
