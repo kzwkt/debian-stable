@@ -1,8 +1,8 @@
 include /etc/sway/config.d/*
 
 set {
-$mod Mod4
-$mod1 Mod1
+$mod Mod1
+$mod1 Mod2
 
 $left h
 $down j
@@ -14,8 +14,9 @@ $r_bl exec pkill -RTMIN+2 i3blocks
 $r_kb exec pkill -RTMIN+3 i3blocks
 
 $term foot
-$browser firefox
-$editor sublime_text
+$browser google-chrome --class=chrome-work --profile-directory="Default"
+$browser1 google-chrome --class=chrome-personal --profile-directory="Profile 1"
+$editor l3afpad
 $menu wofi --show drun -I
 $pctl playerctl.sh
 $mode_system System: (e) exit, (r) reboot, (o) power-off
@@ -23,7 +24,7 @@ $mode_system System: (e) exit, (r) reboot, (o) power-off
 $ws1 1  Term
 $ws2 2  Webb
 $ws3 3  File
-$ws4 4  Code
+$ws4 4   Code
 $ws5 5  Medi
 $ws6 6  Grap
 $ws7 7  Othe
@@ -60,9 +61,11 @@ for_window {
 
 assign {
 [app_id="foot"]  $ws1
-[app_id="$browser"]  $ws2
+[app_id="chrome-work"]  $ws2
+[app_id="chrome-personal"]  $ws3
 [app_id="fm"]   $ws3
 [app_id=geany|l3afpad|sublime_text]  $ws4
+[app_id=chrome-kadndpdhfiaigidpmcgmgabmbcjnjbgn-Default]  $ws5
 [app_id=org.pwmt.zathura]  $ws6
 [app_id=xdm-app] $ws7
 }
@@ -85,6 +88,7 @@ $mod+Shift+r reload
 $mod+s sticky toggle
 $mod+v splitv
 $mod+w exec $browser
+$mod+Shift+w exec $browser1
 $mod+x exec wmoji
 $mod+Escape mode "$mode_system"
 $mod+minus scratchpad show
@@ -98,18 +102,7 @@ $mod+Space input 1:1:AT_Translated_Set_2_keyboard xkb_switch_layout next ;  $r_k
 $mod1+e layout toggle split
 $mod1+s layout stacking
 $mod1+w layout tabbed
-$mod1+Tab workspace next 
-
-$mod1+space focus mode_toggle
-$mod+$left focus left
-$mod+$down focus down
-$mod+$up focus up
-$mod+$right focus right
-
-$mod+Left focus left
-$mod+Down focus down
-$mod+Up focus up
-$mod+Right focus right
+$mod+Tab workspace next 
 
 $mod+Shift+$left move left
 $mod+Shift+$down move down
@@ -153,16 +146,6 @@ $mod+Shift+8 move container to workspace number 8
 $mod+Shift+9 move container to workspace number 9
 $mod+Shift+0 move container to workspace number 10
 
-F4 exec $pctl play-pause
-F3 exec wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+ ; $r_vol
-F2 exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-  ; $r_vol
-F1 exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle  ; $r_vol
-F6 exec  brightnessctl -e set 5%- ; $r_bl 
-F7 exec   brightnessctl -e set 5%+ ; $r_bl
-Control+F2 exec wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-  ; $r_vol
-Control+F3 exec  wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SOURCE@ 5%+  ; $r_vol
-Control+F1 exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle  ; $r_vol
-
 XF86AudioRaiseVolume exec wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+ ; $r_vol
 XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-  ; $r_vol
 XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle  ; $r_vol
@@ -203,7 +186,6 @@ pointer_accel 1
 
 input 1:1:AT_Translated_Set_2_keyboard  {
 xkb_layout "us,np"
-xkb_options caps:backspace
 }
 
 bar {
