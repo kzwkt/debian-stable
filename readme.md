@@ -1,3 +1,65 @@
+# Debootstrap install
+```
+sudo debootstrap --variant=minbase stable /mnt/ http://deb.debian.org/debian/
+sudo chroot.sh 
+apt update
+apt install nano bash-completion ca-certificates dialog locales
+```
+## apt configs
+```
+nano /etc/apt/apt.conf.d/90all
+nano /etc/apt/preferences.d/all
+rm /var/lib/apt/lists/ -r
+nano sources.list.d/debian.sources
+nano /etc/dpkg/dpkg.cfg.d/excludes
+```
+# some initial package and config
+```
+apt install iwd openresolv dbus-broker fdisk
+nano /etc/dbus-1/system.d/iwd-allow-read.conf
+mkdir -p /etc/systemd/system/getty@tty1.service.d/
+nano /etc/systemd/system/getty@tty1.service.d/skip-prompt.conf
+fdsik -l
+```
+# set root password 
+```
+passwd
+useradd k
+passwd k
+apt install opendoas 
+nano /etc/doas.conf
+```
+# setup fstab and kernel
+```
+blkid /dev/sdaX
+nano /etc/fstab
+// # <file system>	<dir>	<type>	<options>		<dump>	<pass>
+setup root,boot,home
+mount -a
+apt install systemd-boot dosfstools e2fsprogs
+apt install tiny-initramfs linux-image-amd64
+apt install firmware-iwlwifi firmware-intel-graphics firmware-amd-graphics
+nano /etc/hostname
+nano /boot/loader/entries/**.conf
+findmnt -no UUID /
+add options parameter rw quiet root=UUID=
+ls /boot/
+```
+# some gui,driver and wayland
+```
+apt install ffmpeg file fonts-noto-color-emoji foot  grim  htop  intel-media-va-driver-non-free iwd  jq   l3afpad
+apt install  mandoc mpv nnn  pipewire-audio  slurp sway udev systemd-oomd  systemd-timesyncd systemd-zram-generator tzdata
+apt install  vainfo  wireless-regdb wl-clipboard wofi  zathura wl-clipboard wofi librsvg2-common less wlsunset  wtype ntfs-3g 
+```
+# configs
+```
+ /sbin/dpkg-reconfigure tzdata
+/sbin/dpkg-reconfigure debconf
+/sbin/dpkg-reconfigure locales
+ timedatectl set-ntp true  // not in chroot
+ systemctl enable iwd
+```
+ 
 
 # debian dots and configs
 
